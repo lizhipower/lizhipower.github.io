@@ -4,7 +4,7 @@
   
   <link href="/atom.xml" rel="self"/>
   <link href="http://lizhipower.github.io/"/>
-  <updated>2015-04-23T06:57:38.476Z</updated>
+  <updated>2015-04-23T13:23:08.786Z</updated>
   <id>http://lizhipower.github.io/</id>
   
   <author>
@@ -13,6 +13,77 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[ECMAScript基础]]></title>
+    <link href="http://lizhipower.github.io/2015/04/23/js-notes/"/>
+    <id>http://lizhipower.github.io/2015/04/23/js-notes/</id>
+    <published>2015-04-23T07:50:21.000Z</published>
+    <updated>2015-04-23T13:23:08.786Z</updated>
+    <content type="html"><![CDATA[<h1 id="ECMAScript基础">ECMAScript基础</h1><h2 id="原始类型">原始类型</h2><ol>
+<li>原始类型有Undefined、Null、Bollean、Number和String。</li>
+<li>typeof用来判断一个值是否在某种类型的范围内，引用类型或者Null返回object，null被认为是对象的占位符。</li>
+<li>undefined： <ul>
+<li>声明的对象未初始化</li>
+<li>对象未定义：<strong>只能对未定义的对象使用typeof，使用其他运算符会报错</strong></li>
+<li>函数无明确返回值</li>
+</ul>
+</li>
+<li>null用于表示尚未存在的对象。</li>
+<li><code>typeof(1)</code>和<code>typeof(NaN)</code>都是<code>number</code>，但<code>isNaN(NaN)</code>与<code>isNaN(1)</code>是不一样的。</li>
+<li>Number的<code>toString()</code>可以根据不同的基输出结果。</li>
+<li>String的<code>pasreInt()</code> 可以把字符串中的第一串数字字符转化成数字（0xA会被转化成10），会在第一个无效字符之前停止，同样也有基模式。</li>
+</ol>
+<h2 id="引用类型">引用类型</h2><ol>
+<li>String可以有<code>indexof()</code>、<code>charAt()</code>、<code>valueOf()</code>、<code>toString()</code>等方法。</li>
+<li>String的<code>slice()</code>可以传负参数，其表示字符串长度加上负参数值，slice开始位置包含在返回值，终止位置不包含在返回值，从0开始计位置。</li>
+</ol>
+<h2 id="函数">函数</h2><ol>
+<li>js的函数不支持重载，但是可以使用特殊对象arguments，无需指出参数名，就能访问它们。ECMAScript不会验证传递给函数的参数个数是否等于函数定义的参数个数，其中，遗漏的函数以undefined传递给函数，多余的参数被忽略，因此可以通过arguments来简易模拟函数重载。<br><code>function a() {}</code>等价于<code>var a = function(){}</code>。</li>
+<li>函数实际上是功能完整的对象。Function类可以表示开发者定义的任何函数。<strong>函数名实际上是函数对象的引用值</strong>，<strong>函数可以作为参数传递给另外一个函数</strong>。</li>
+<li><p><strong>闭包</strong></p>
+<p><strong>闭包</strong>是指函数能使用函数外定义的变量。</p>
+</li>
+</ol>
+<pre><code>&lt;!--lang:javascript--&gt; 
+<span class="keyword">var</span> iBaseNum = <span class="number">10</span>;
+<span class="function"><span class="keyword">function</span> <span class="title">addNumbers</span><span class="params">(iNum1, iNum2)</span> </span>{
+    <span class="comment">//闭包</span>
+    <span class="function"><span class="keyword">function</span> <span class="title">doAddition</span> <span class="params">()</span></span>{
+        <span class="keyword">return</span> iNum1 + iNum2 + iBaseNum;
+    }
+<span class="keyword">return</span> doAddition();
+} 
+</code></pre><p>闭包可以用来读取局部变量。</p>
+<pre><code>function f1(){
+    <span class="keyword">var</span> n=<span class="number">999</span>;
+    function f2(){
+       alert(n); // <span class="number">999</span>
+    }
+}
+
+function f1(){
+    <span class="keyword">var</span> n=<span class="number">999</span>;
+    function f2(){
+        alert(n); 
+    }
+    <span class="keyword">return</span> f2;//返回函数的引用
+}
+<span class="keyword">var</span> <span class="literal">result</span>=f1();// <span class="literal">result</span> =  f2
+<span class="literal">result</span>(); // <span class="number">999</span>
+</code></pre><p>  <a href="http://www.ruanyifeng.com/blog/2009/08/learning_javascript_closures.html" title="学习Javascript闭包" target="_blank" rel="external">闭包</a>主要用来<strong>读取函数内部的变量</strong>或者<strong>让这些变量的值始终保持在内存中</strong>。个人认为，闭包的关键在于返回了一个子函数，子函数可以调用父函数的变量，从而可以再外部调用到父函数内部的变量。这里的子函数如果是定义为全局变量，则直接通过调用子函数来实现访问内部变量。</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<h1 id="ECMAScript基础">ECMAScript基础</h1><h2 id="原始类型">原始类型</h2><ol>
+<li>原始类型有Undefined、Null、Bollean、Number和String。</li>
+<li>typeof用来判断一个值是否在某]]>
+    </summary>
+    
+      <category term="js" scheme="http://lizhipower.github.io/tags/js/"/>
+    
+      <category term="note" scheme="http://lizhipower.github.io/tags/note/"/>
+    
+  </entry>
   
   <entry>
     <title><![CDATA[2015-04-23]]></title>
