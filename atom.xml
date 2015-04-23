@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title><![CDATA[ZhiLI]]></title>
+  
+  <link href="/atom.xml" rel="self"/>
+  <link href="http://lizhipower.github.io/"/>
+  <updated>2015-04-23T06:57:38.476Z</updated>
+  <id>http://lizhipower.github.io/</id>
+  
+  <author>
+    <name><![CDATA[ZhiLI]]></name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[2015-04-23]]></title>
+    <link href="http://lizhipower.github.io/2015/04/23/2015-04-23/"/>
+    <id>http://lizhipower.github.io/2015/04/23/2015-04-23/</id>
+    <published>2015-04-23T06:37:15.000Z</published>
+    <updated>2015-04-23T06:57:38.476Z</updated>
+    <content type="html"><![CDATA[<h1 id="最近主要在做三件事">最近主要在做三件事</h1><ul>
+<li>百度IFE</li>
+</ul>
+<p><a href="https://github.com/baidu-ife/ife" target="_blank" rel="external">https://github.com/baidu-ife/ife</a></p>
+<ul>
+<li>宁波RDS</li>
+</ul>
+<p>下周甲方过来汇报</p>
+<ul>
+<li>配网论文</li>
+</ul>
+<p>月底提交，打算投电网吧，希望能在这学期搞定第一篇EI。</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<h1 id="最近主要在做三件事">最近主要在做三件事</h1><ul>
+<li>百度IFE</li>
+</ul>
+<p><a href="https://github.com/baidu-ife/ife" target="_blank" rel="external">http]]>
+    </summary>
+    
+      <category term="日记" scheme="http://lizhipower.github.io/tags/%E6%97%A5%E8%AE%B0/"/>
+    
+  </entry>
+  
+</feed>
