@@ -4,7 +4,7 @@
   
   <link href="/atom.xml" rel="self"/>
   <link href="http://lizhipower.github.io/"/>
-  <updated>2015-04-23T13:23:08.786Z</updated>
+  <updated>2015-04-25T14:34:23.927Z</updated>
   <id>http://lizhipower.github.io/</id>
   
   <author>
@@ -15,11 +15,47 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title><![CDATA[distribution-network-reconfiguraton-with-HSA]]></title>
+    <link href="http://lizhipower.github.io/2015/04/25/distribution-network-reconfiguraton-with-HSA/"/>
+    <id>http://lizhipower.github.io/2015/04/25/distribution-network-reconfiguraton-with-HSA/</id>
+    <published>2015-04-25T14:22:36.000Z</published>
+    <updated>2015-04-25T14:34:23.927Z</updated>
+    <content type="html"><![CDATA[<h2 id="HSA">HSA</h2><p>目前和声算法已经做得比较成熟，小系统和中系统都可以算</p>
+<h2 id="powerflow">powerflow</h2><p>潮流主要用了牛拉法，对于牛拉的核心掌握还不是很好，但是牛拉算潮流基本上封装的比较好，在33-bus和69-bus上都验证了有效性。<br>但是在119-bus上结果不对，而且119-bus系统编号有问题，找了一个没问题的算例，结果更奇葩，不能理解。</p>
+<h2 id="sample_system">sample system</h2><p>支持33-bus，69-bus；不支持119-bus。前者都是11.26kV，后者是11kV。</p>
+<h2 id="TODO">TODO</h2><ol>
+<li>台风模型：<ul>
+<li>台风的影响半径：一般十级100km，也有300km</li>
+<li>台风对配网的影响：故障率建模</li>
+<li>台风影响范围：确定受影响最严重的台风</li>
+</ul>
+</li>
+<li>论文：<ul>
+<li>月底或5月初投电网</li>
+<li>5月中完成台风模型</li>
+</ul>
+</li>
+</ol>
+]]></content>
+    <summary type="html">
+    <![CDATA[<h2 id="HSA">HSA</h2><p>目前和声算法已经做得比较成熟，小系统和中系统都可以算</p>
+<h2 id="powerflow">powerflow</h2><p>潮流主要用了牛拉法，对于牛拉的核心掌握还不是很好，但是牛拉算潮流基本上封装的比较好，在33-bus]]>
+    </summary>
+    
+      <category term="电力" scheme="http://lizhipower.github.io/tags/%E7%94%B5%E5%8A%9B/"/>
+    
+      <category term="算法" scheme="http://lizhipower.github.io/tags/%E7%AE%97%E6%B3%95/"/>
+    
+      <category term="配电网" scheme="http://lizhipower.github.io/tags/%E9%85%8D%E7%94%B5%E7%BD%91/"/>
+    
+  </entry>
+  
+  <entry>
     <title><![CDATA[ECMAScript基础]]></title>
     <link href="http://lizhipower.github.io/2015/04/23/js-notes/"/>
     <id>http://lizhipower.github.io/2015/04/23/js-notes/</id>
     <published>2015-04-23T07:50:21.000Z</published>
-    <updated>2015-04-23T13:23:08.786Z</updated>
+    <updated>2015-04-23T13:26:30.682Z</updated>
     <content type="html"><![CDATA[<h1 id="ECMAScript基础">ECMAScript基础</h1><h2 id="原始类型">原始类型</h2><ol>
 <li>原始类型有Undefined、Null、Bollean、Number和String。</li>
 <li>typeof用来判断一个值是否在某种类型的范围内，引用类型或者Null返回object，null被认为是对象的占位符。</li>
@@ -54,7 +90,7 @@
     }
 <span class="keyword">return</span> doAddition();
 } 
-</code></pre><p>闭包可以用来读取局部变量。</p>
+</code></pre><p> 闭包可以用来读取局部变量。</p>
 <pre><code>function f1(){
     <span class="keyword">var</span> n=<span class="number">999</span>;
     function f2(){
@@ -71,7 +107,7 @@ function f1(){
 }
 <span class="keyword">var</span> <span class="literal">result</span>=f1();// <span class="literal">result</span> =  f2
 <span class="literal">result</span>(); // <span class="number">999</span>
-</code></pre><p>  <a href="http://www.ruanyifeng.com/blog/2009/08/learning_javascript_closures.html" title="学习Javascript闭包" target="_blank" rel="external">闭包</a>主要用来<strong>读取函数内部的变量</strong>或者<strong>让这些变量的值始终保持在内存中</strong>。个人认为，闭包的关键在于返回了一个子函数，子函数可以调用父函数的变量，从而可以再外部调用到父函数内部的变量。这里的子函数如果是定义为全局变量，则直接通过调用子函数来实现访问内部变量。</p>
+</code></pre><p> <a href="http://www.ruanyifeng.com/blog/2009/08/learning_javascript_closures.html" title="学习Javascript闭包" target="_blank" rel="external">闭包</a>主要用来<strong>读取函数内部的变量</strong>或者<strong>让这些变量的值始终保持在内存中</strong>。个人认为，闭包的关键在于返回了一个子函数，子函数可以调用父函数的变量，从而可以再外部调用到父函数内部的变量。这里的子函数如果是定义为全局变量，则直接通过调用子函数来实现访问内部变量。</p>
 ]]></content>
     <summary type="html">
     <![CDATA[<h1 id="ECMAScript基础">ECMAScript基础</h1><h2 id="原始类型">原始类型</h2><ol>
