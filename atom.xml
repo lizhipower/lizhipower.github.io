@@ -4,7 +4,7 @@
   
   <link href="/atom.xml" rel="self"/>
   <link href="http://lizhipower.github.io/"/>
-  <updated>2015-04-25T14:34:23.927Z</updated>
+  <updated>2015-05-05T14:18:06.136Z</updated>
   <id>http://lizhipower.github.io/</id>
   
   <author>
@@ -13,6 +13,25 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[四月总结]]></title>
+    <link href="http://lizhipower.github.io/2015/05/05/april-review/"/>
+    <id>http://lizhipower.github.io/2015/05/05/april-review/</id>
+    <published>2015-05-05T13:43:02.000Z</published>
+    <updated>2015-05-05T14:18:06.136Z</updated>
+    <content type="html"><![CDATA[<h2 id="代码">代码</h2><p>写了半天终于把task3功能全部写完，三个功能下来确实发现基础变的好很多，不再依赖其他外部的东西，很多东西理解还是不深入，继续读代码吧。<br>matlab上面关于配电网重构和台风预警的结合部分迟迟没有动笔，大约这个礼拜开始尝试着把配电网的地理位置坐标做出来吧。</p>
+<h2 id="论文">论文</h2><p>终于写完了第一篇，交给老板看，看完这周末一定投出去。刚才写到这里为了杀死拖延症花了半个小时终于把论文的标题，作者信息等等全部写好发给了老板。</p>
+<h2 id="生活">生活</h2><p>该踢球踢球，该锻炼锻炼，媳妇儿终于回大陆了，结束我一年支教，她一年留学的异地，开始一段新的她在家我在学校的异地。</p>
+<h2 id="感想">感想</h2><p>四月很忙，不过好的事情是终于知道自己想要什么，自己对于科研也有了一定的想法，有了自己的一点理解，在代码方面也算是一点点的入门了。记住那句话：<strong>跳出算法，回归物理意义。</strong></p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<h2 id="代码">代码</h2><p>写了半天终于把task3功能全部写完，三个功能下来确实发现基础变的好很多，不再依赖其他外部的东西，很多东西理解还是不深入，继续读代码吧。<br>matlab上面关于配电网重构和台风预警的结合部分迟迟没有动笔，大约这个礼拜开始尝试着把配电]]>
+    </summary>
+    
+      <category term="日记" scheme="http://lizhipower.github.io/tags/%E6%97%A5%E8%AE%B0/"/>
+    
+  </entry>
   
   <entry>
     <title><![CDATA[distribution-network-reconfiguraton-with-HSA]]></title>
