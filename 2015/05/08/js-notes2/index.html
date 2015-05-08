@@ -4,22 +4,34 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>ZhiLI</title>
+    <title>对象基础 | ZhiLI</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="ZhiLI">
     
 
     
-    <meta name="description">
-<meta property="og:type" content="website">
-<meta property="og:title" content="ZhiLI">
-<meta property="og:url" content="http://lizhipower.github.io/index.html">
+    <meta name="description" content="定义
+对象：属性的无序结合，每个属性存放一个原始值、对象或者函数。每个对象由类定义，定义了对象的接口（开发者访问的属性和方法），内部工作（使属性和方法发挥作用的代码）。
+实例：程序使用类创建对象时，生成的对象叫做类的实例。每个实例的行为相同，但是实例处理一组独立的数据。创建过程叫做实例化。
+ECMA-262类：类是对象的配方。
+ECMA-262对象：对象由特性（attribute）构成，特性可以是">
+<meta property="og:type" content="article">
+<meta property="og:title" content="对象基础">
+<meta property="og:url" content="http://lizhipower.github.io/2015/05/08/js-notes2/index.html">
 <meta property="og:site_name" content="ZhiLI">
-<meta property="og:description">
+<meta property="og:description" content="定义
+对象：属性的无序结合，每个属性存放一个原始值、对象或者函数。每个对象由类定义，定义了对象的接口（开发者访问的属性和方法），内部工作（使属性和方法发挥作用的代码）。
+实例：程序使用类创建对象时，生成的对象叫做类的实例。每个实例的行为相同，但是实例处理一组独立的数据。创建过程叫做实例化。
+ECMA-262类：类是对象的配方。
+ECMA-262对象：对象由特性（attribute）构成，特性可以是">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="ZhiLI">
-<meta name="twitter:description">
+<meta name="twitter:title" content="对象基础">
+<meta name="twitter:description" content="定义
+对象：属性的无序结合，每个属性存放一个原始值、对象或者函数。每个对象由类定义，定义了对象的接口（开发者访问的属性和方法），内部工作（使属性和方法发挥作用的代码）。
+实例：程序使用类创建对象时，生成的对象叫做类的实例。每个实例的行为相同，但是实例处理一组独立的数据。创建过程叫做实例化。
+ECMA-262类：类是对象的配方。
+ECMA-262对象：对象由特性（attribute）构成，特性可以是">
 <meta name="twitter:creator" content="@lizhi_zju">
 <link rel="publisher" href="103939508165728687191">
 
@@ -74,12 +86,10 @@
 </div>
     </header>
     <div id="container">
-      <div id="main">
-
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
   <h1 itemprop="name">
     
       <a href="/2015/05/08/js-notes2/" title="对象基础" itemprop="url">对象基础</a>
@@ -93,9 +103,16 @@
     
   </p>
 </header>
-    <div class="article-content">
-        
-        <h2 id="定义">定义</h2><ul>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目錄</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#定义"><span class="toc-number">1.</span> <span class="toc-text">定义</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#对象的类型"><span class="toc-number">2.</span> <span class="toc-text">对象的类型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#本地对象"><span class="toc-number">2.1.</span> <span class="toc-text">本地对象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#内置对象"><span class="toc-number">2.2.</span> <span class="toc-text">内置对象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#宿主对象"><span class="toc-number">2.3.</span> <span class="toc-text">宿主对象</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#定义类或对象"><span class="toc-number">3.</span> <span class="toc-text">定义类或对象</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#工厂方式"><span class="toc-number">3.1.</span> <span class="toc-text">工厂方式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#构造函数方式"><span class="toc-number">3.2.</span> <span class="toc-text">构造函数方式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#原型方式"><span class="toc-number">3.3.</span> <span class="toc-text">原型方式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#混合方式"><span class="toc-number">3.4.</span> <span class="toc-text">混合方式</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#对象修改"><span class="toc-number">4.</span> <span class="toc-text">对象修改</span></a></li></ol>
+		
+		</div>
+		
+		<h2 id="定义">定义</h2><ul>
 <li>对象：属性的无序结合，每个属性存放一个原始值、对象或者函数。每个对象由类定义，定义了对象的接口（开发者访问的属性和方法），内部工作（使属性和方法发挥作用的代码）。</li>
 <li>实例：程序使用类创建对象时，生成的对象叫做类的实例。每个实例的行为相同，但是实例处理一组独立的数据。创建过程叫做实例化。</li>
 <li>ECMA-262类：类是对象的配方。</li>
@@ -169,14 +186,9 @@ Car.prototype.showColor = <span class="function"><span class="keyword">function<
             <span class="built_in">console</span>.log(<span class="keyword">this</span>.color)
 };
 </code></pre><h2 id="对象修改">对象修改</h2><p>通过<code>prototype</code>可以创建新方法，重新定义已有方法。</p>
-
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
+  
+	</div>
+		<footer class="article-footer clearfix">
 <div class="article-catetags">
 
 
@@ -189,324 +201,43 @@ Car.prototype.showColor = <span class="function"><span class="keyword">function<
 
 
 
-
-<div class="comments-count">
+	<div class="article-share" id="share">
 	
-</div>
+	  <div data-url="http://lizhipower.github.io/2015/05/08/js-notes2/" data-title="对象基础 | ZhiLI" data-tsina="lzec" class="share clearfix">
+	  </div>
+	
+	</div>
+
 
 </footer>
 
-
-    </article>
-
-
-
-
-
-
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2015/05/05/april-review/" title="四月总结" itemprop="url">四月总结</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="https://plus.google.com/103939508165728687191?rel=author" title="ZhiLI" target="_blank" itemprop="author">ZhiLI</a>
-		
-  <p class="article-time">
-    <time datetime="2015-05-05T13:43:02.000Z" itemprop="datePublished"> 發表於 2015-05-05</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <h2 id="代码">代码</h2><p>写了半天终于把task3功能全部写完，三个功能下来确实发现基础变的好很多，不再依赖其他外部的东西，很多东西理解还是不深入，继续读代码吧。<br>matlab上面关于配电网重构和台风预警的结合部分迟迟没有动笔，大约这个礼拜开始尝试着把配电网的地理位置坐标做出来吧。</p>
-<h2 id="论文">论文</h2><p>终于写完了第一篇，交给老板看，看完这周末一定投出去。刚才写到这里为了杀死拖延症花了半个小时终于把论文的标题，作者信息等等全部写好发给了老板。</p>
-<h2 id="生活">生活</h2><p>该踢球踢球，该锻炼锻炼，媳妇儿终于回大陆了，结束我一年支教，她一年留学的异地，开始一段新的她在家我在学校的异地。</p>
-<h2 id="感想">感想</h2><p>四月很忙，不过好的事情是终于知道自己想要什么，自己对于科研也有了一定的想法，有了自己的一点理解，在代码方面也算是一点点的入门了。记住那句话：<strong>跳出算法，回归物理意义。</strong></p>
-
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-
-  <div class="article-tags">
-  
-  <span></span> <a href="/tags/日记/">日记</a>
-  </div>
-
-</div>
-
-
-
-
-<div class="comments-count">
+   	       
+	</article>
 	
+<nav class="article-nav clearfix">
+ 
+
+<div class="next">
+<a href="/2015/05/05/april-review/"  title="四月总结">
+ <strong>下一篇：</strong><br/> 
+ <span>四月总结
+</span>
+</a>
 </div>
 
-</footer>
+</nav>
 
-
-    </article>
-
-
-
-
-
-
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2015/04/25/distribution-network-reconfiguraton-with-HSA/" title="distribution-network-reconfiguraton-with-HSA" itemprop="url">distribution-network-reconfiguraton-with-HSA</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="https://plus.google.com/103939508165728687191?rel=author" title="ZhiLI" target="_blank" itemprop="author">ZhiLI</a>
-		
-  <p class="article-time">
-    <time datetime="2015-04-25T14:22:36.000Z" itemprop="datePublished"> 發表於 2015-04-25</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <h2 id="HSA">HSA</h2><p>目前和声算法已经做得比较成熟，小系统和中系统都可以算</p>
-<h2 id="powerflow">powerflow</h2><p>潮流主要用了牛拉法，对于牛拉的核心掌握还不是很好，但是牛拉算潮流基本上封装的比较好，在33-bus和69-bus上都验证了有效性。<br>但是在119-bus上结果不对，而且119-bus系统编号有问题，找了一个没问题的算例，结果更奇葩，不能理解。</p>
-<h2 id="sample_system">sample system</h2><p>支持33-bus，69-bus；不支持119-bus。前者都是11.26kV，后者是11kV。</p>
-<h2 id="TODO">TODO</h2><ol>
-<li>台风模型：<ul>
-<li>台风的影响半径：一般十级100km，也有300km</li>
-<li>台风对配网的影响：故障率建模</li>
-<li>台风影响范围：确定受影响最严重的台风</li>
-</ul>
-</li>
-<li>论文：<ul>
-<li>月底或5月初投电网</li>
-<li>5月中完成台风模型</li>
-</ul>
-</li>
-</ol>
-
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-
-  <div class="article-tags">
-  
-  <span></span> <a href="/tags/电力/">电力</a><a href="/tags/算法/">算法</a><a href="/tags/配电网/">配电网</a>
-  </div>
-
-</div>
-
-
-
-
-<div class="comments-count">
 	
-</div>
 
-</footer>
-
-
-    </article>
-
-
-
-
-
-
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2015/04/23/js-notes/" title="ECMAScript基础" itemprop="url">ECMAScript基础</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="https://plus.google.com/103939508165728687191?rel=author" title="ZhiLI" target="_blank" itemprop="author">ZhiLI</a>
-		
-  <p class="article-time">
-    <time datetime="2015-04-23T07:50:21.000Z" itemprop="datePublished"> 發表於 2015-04-23</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <h1 id="ECMAScript基础">ECMAScript基础</h1><h2 id="原始类型">原始类型</h2><ol>
-<li>原始类型有Undefined、Null、Bollean、Number和String。</li>
-<li>typeof用来判断一个值是否在某种类型的范围内，引用类型或者Null返回object，null被认为是对象的占位符。</li>
-<li>undefined： <ul>
-<li>声明的对象未初始化</li>
-<li>对象未定义：<strong>只能对未定义的对象使用typeof，使用其他运算符会报错</strong></li>
-<li>函数无明确返回值</li>
-</ul>
-</li>
-<li>null用于表示尚未存在的对象。</li>
-<li><code>typeof(1)</code>和<code>typeof(NaN)</code>都是<code>number</code>，但<code>isNaN(NaN)</code>与<code>isNaN(1)</code>是不一样的。</li>
-<li>Number的<code>toString()</code>可以根据不同的基输出结果。</li>
-<li>String的<code>pasreInt()</code> 可以把字符串中的第一串数字字符转化成数字（0xA会被转化成10），会在第一个无效字符之前停止，同样也有基模式。</li>
-</ol>
-<h2 id="引用类型">引用类型</h2><ol>
-<li>String可以有<code>indexof()</code>、<code>charAt()</code>、<code>valueOf()</code>、<code>toString()</code>等方法。</li>
-<li>String的<code>slice()</code>可以传负参数，其表示字符串长度加上负参数值，slice开始位置包含在返回值，终止位置不包含在返回值，从0开始计位置。</li>
-</ol>
-<h2 id="函数">函数</h2><ol>
-<li>js的函数不支持重载，但是可以使用特殊对象arguments，无需指出参数名，就能访问它们。ECMAScript不会验证传递给函数的参数个数是否等于函数定义的参数个数，其中，遗漏的函数以undefined传递给函数，多余的参数被忽略，因此可以通过arguments来简易模拟函数重载。<br><code>function a() {}</code>等价于<code>var a = function(){}</code>。</li>
-<li>函数实际上是功能完整的对象。Function类可以表示开发者定义的任何函数。<strong>函数名实际上是函数对象的引用值</strong>，<strong>函数可以作为参数传递给另外一个函数</strong>。</li>
-<li><p><strong>闭包</strong></p>
-<p><strong>闭包</strong>是指函数能使用函数外定义的变量。</p>
-</li>
-</ol>
-<pre><code>&lt;!--lang:javascript--&gt; 
-<span class="keyword">var</span> iBaseNum = <span class="number">10</span>;
-<span class="function"><span class="keyword">function</span> <span class="title">addNumbers</span><span class="params">(iNum1, iNum2)</span> </span>{
-    <span class="comment">//闭包</span>
-    <span class="function"><span class="keyword">function</span> <span class="title">doAddition</span> <span class="params">()</span></span>{
-        <span class="keyword">return</span> iNum1 + iNum2 + iBaseNum;
-    }
-<span class="keyword">return</span> doAddition();
-} 
-</code></pre><p> 闭包可以用来读取局部变量。</p>
-<pre><code>function f1(){
-    <span class="keyword">var</span> n=<span class="number">999</span>;
-    function f2(){
-       alert(n); // <span class="number">999</span>
-    }
-}
-
-function f1(){
-    <span class="keyword">var</span> n=<span class="number">999</span>;
-    function f2(){
-        alert(n); 
-    }
-    <span class="keyword">return</span> f2;//返回函数的引用
-}
-<span class="keyword">var</span> <span class="literal">result</span>=f1();// <span class="literal">result</span> =  f2
-<span class="literal">result</span>(); // <span class="number">999</span>
-</code></pre><p> <a href="http://www.ruanyifeng.com/blog/2009/08/learning_javascript_closures.html" title="学习Javascript闭包" target="_blank" rel="external">闭包</a>主要用来<strong>读取函数内部的变量</strong>或者<strong>让这些变量的值始终保持在内存中</strong>。个人认为，闭包的关键在于返回了一个子函数，子函数可以调用父函数的变量，从而可以再外部调用到父函数内部的变量。这里的子函数如果是定义为全局变量，则直接通过调用子函数来实现访问内部变量。</p>
-
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-
-  <div class="article-tags">
-  
-  <span></span> <a href="/tags/js/">js</a><a href="/tags/note/">note</a>
-  </div>
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2015/04/23/2015-04-23/" title="2015-04-23" itemprop="url">2015-04-23</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="https://plus.google.com/103939508165728687191?rel=author" title="ZhiLI" target="_blank" itemprop="author">ZhiLI</a>
-		
-  <p class="article-time">
-    <time datetime="2015-04-23T06:37:15.000Z" itemprop="datePublished"> 發表於 2015-04-23</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <h1 id="最近主要在做三件事">最近主要在做三件事</h1><ul>
-<li>百度IFE</li>
-</ul>
-<p><a href="https://github.com/baidu-ife/ife" target="_blank" rel="external">https://github.com/baidu-ife/ife</a></p>
-<ul>
-<li>宁波RDS</li>
-</ul>
-<p>下周甲方过来汇报</p>
-<ul>
-<li>配网论文</li>
-</ul>
-<p>月底提交，打算投电网吧，希望能在这学期搞定第一篇EI。</p>
-
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-
-  <div class="article-tags">
-  
-  <span></span> <a href="/tags/日记/">日记</a>
-  </div>
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
-
-</div>
+</div>  
       <div class="openaside"><a class="navbutton" href="#" title="顯示側邊欄"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目錄</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#定义"><span class="toc-number">1.</span> <span class="toc-text">定义</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#对象的类型"><span class="toc-number">2.</span> <span class="toc-text">对象的类型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#本地对象"><span class="toc-number">2.1.</span> <span class="toc-text">本地对象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#内置对象"><span class="toc-number">2.2.</span> <span class="toc-text">内置对象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#宿主对象"><span class="toc-number">2.3.</span> <span class="toc-text">宿主对象</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#定义类或对象"><span class="toc-number">3.</span> <span class="toc-text">定义类或对象</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#工厂方式"><span class="toc-number">3.1.</span> <span class="toc-text">工厂方式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#构造函数方式"><span class="toc-number">3.2.</span> <span class="toc-text">构造函数方式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#原型方式"><span class="toc-number">3.3.</span> <span class="toc-text">原型方式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#混合方式"><span class="toc-number">3.4.</span> <span class="toc-text">混合方式</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#对象修改"><span class="toc-number">4.</span> <span class="toc-text">对象修改</span></a></li></ol>
+ 
+  </div>
 
 <div id="asidepart">
 <div class="closeaside"><a class="closebutton" href="#" title="隱藏側邊欄"></a></div>
@@ -673,12 +404,69 @@ $(document).ready(function(){
       m.removeClass('moveMain');
       a.css('display', 'block').removeClass('fadeOut');
       o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
         
     }
   });
 });
 </script>
 
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<a href="#" class="overlay" id="qrcode"></a>',
+  '<div class="qrcode clearfix"><span>扫描二维码分享到微信朋友圈</span><a class="qrclose" href="#nothing"></a><strong>Loading...Please wait</strong><img id="qrcode-pic" data-src="http://s.jiathis.com/qrcode.php?url=' + encodedUrl + '"/></div>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+  $('.article-share-qrcode').click(function(){
+    var imgSrc = $('#qrcode-pic').attr('data-src');
+    $('#qrcode-pic').attr('src', imgSrc);
+    $('#qrcode-pic').load(function(){
+        $('.qrcode strong').text(' ');
+    });
+  });
+});     
+</script>
 
 
 
@@ -785,4 +573,4 @@ _ts(option);
 <!-- Tiny_search End -->
 
   </body>
- </html>
+</html>
