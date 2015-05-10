@@ -4,55 +4,22 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>2015-04-23 | ZhiLI</title>
+    <title>继承 | ZhiLI</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="ZhiLI">
     
 
     
-    <meta name="description" content="最近主要在做三件事
-百度IFE
-
-https://github.com/baidu-ife/ife
-
-宁波RDS
-
-下周甲方过来汇报
-
-配网论文
-
-月底提交，打算投电网吧，希望能在这学期搞定第一篇EI。">
+    <meta name="description" content="对象冒充原理：构造函数使用this关键字给所有属性和方法赋值（采用类声明的构造函数方式）。以为构造函数只是一个函数，可以使ClassA的构造函数成为ClassB的方法，然后调用它。ClassB就会收到ClassA的构造函数中定义的属性和方法。这里，其实是把ClassA作为常规函数来建立继承机制，而不是作为构造函数。需要注意的是，所有的新属性和新方法都必须在删除了新方法之后定义，否则，新属性和新方法">
 <meta property="og:type" content="article">
-<meta property="og:title" content="2015-04-23">
-<meta property="og:url" content="http://lizhipower.github.io/2015/04/23/2015-04-23/index.html">
+<meta property="og:title" content="继承">
+<meta property="og:url" content="http://lizhipower.github.io/2015/05/10/js-notes3/index.html">
 <meta property="og:site_name" content="ZhiLI">
-<meta property="og:description" content="最近主要在做三件事
-百度IFE
-
-https://github.com/baidu-ife/ife
-
-宁波RDS
-
-下周甲方过来汇报
-
-配网论文
-
-月底提交，打算投电网吧，希望能在这学期搞定第一篇EI。">
+<meta property="og:description" content="对象冒充原理：构造函数使用this关键字给所有属性和方法赋值（采用类声明的构造函数方式）。以为构造函数只是一个函数，可以使ClassA的构造函数成为ClassB的方法，然后调用它。ClassB就会收到ClassA的构造函数中定义的属性和方法。这里，其实是把ClassA作为常规函数来建立继承机制，而不是作为构造函数。需要注意的是，所有的新属性和新方法都必须在删除了新方法之后定义，否则，新属性和新方法">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="2015-04-23">
-<meta name="twitter:description" content="最近主要在做三件事
-百度IFE
-
-https://github.com/baidu-ife/ife
-
-宁波RDS
-
-下周甲方过来汇报
-
-配网论文
-
-月底提交，打算投电网吧，希望能在这学期搞定第一篇EI。">
+<meta name="twitter:title" content="继承">
+<meta name="twitter:description" content="对象冒充原理：构造函数使用this关键字给所有属性和方法赋值（采用类声明的构造函数方式）。以为构造函数只是一个函数，可以使ClassA的构造函数成为ClassB的方法，然后调用它。ClassB就会收到ClassA的构造函数中定义的属性和方法。这里，其实是把ClassA作为常规函数来建立继承机制，而不是作为构造函数。需要注意的是，所有的新属性和新方法都必须在删除了新方法之后定义，否则，新属性和新方法">
 <meta name="twitter:creator" content="@lizhi_zju">
 <link rel="publisher" href="103939508165728687191">
 
@@ -113,14 +80,14 @@ https://github.com/baidu-ife/ife
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2015/04/23/2015-04-23/" title="2015-04-23" itemprop="url">2015-04-23</a>
+      <a href="/2015/05/10/js-notes3/" title="继承" itemprop="url">继承</a>
   </h1>
   <p class="article-author">By
        
 		<a href="https://plus.google.com/103939508165728687191?rel=author" title="ZhiLI" target="_blank" itemprop="author">ZhiLI</a>
 		
   <p class="article-time">
-    <time datetime="2015-04-23T06:37:15.000Z" itemprop="datePublished"> 發表於 2015-04-23</time>
+    <time datetime="2015-05-10T04:49:41.000Z" itemprop="datePublished"> 發表於 2015-05-10</time>
     
   </p>
 </header>
@@ -129,22 +96,42 @@ https://github.com/baidu-ife/ife
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目錄</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#最近主要在做三件事"><span class="toc-number">1.</span> <span class="toc-text">最近主要在做三件事</span></a></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#对象冒充"><span class="toc-number">1.</span> <span class="toc-text">对象冒充</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#原型链"><span class="toc-number">2.</span> <span class="toc-text">原型链</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#混合方式"><span class="toc-number">3.</span> <span class="toc-text">混合方式</span></a></li></ol>
 		
 		</div>
 		
-		<h1 id="最近主要在做三件事">最近主要在做三件事</h1><ul>
-<li>百度IFE</li>
-</ul>
-<p><a href="https://github.com/baidu-ife/ife" target="_blank" rel="external">https://github.com/baidu-ife/ife</a></p>
+		<h2 id="对象冒充">对象冒充</h2><p>原理：构造函数使用this关键字给所有属性和方法赋值（采用类声明的构造函数方式）。以为构造函数只是一个函数，可以使ClassA的构造函数成为ClassB的方法，然后调用它。ClassB就会收到ClassA的构造函数中定义的属性和方法。这里，其实是把ClassA作为常规函数来建立继承机制，而不是作为构造函数。需要注意的是，所有的新属性和新方法都必须在删除了新方法之后定义，否则，新属性和新方法可能会被继承到的属性和方法覆盖。</p>
+<p>并且，对象冒充可以支持多重继承，同样的，如果继承的不同类中存在相同的方法和属性，也会存在前者被后者被覆盖的问题。</p>
+<p>随着对象冒充的流行，ECMAScript为Function对象加入了<code>call()</code>和<code>apply()</code>。</p>
 <ul>
-<li>宁波RDS</li>
+<li><p><code>call()</code><br><code>call()</code>的第一个参数是obj，说明<code>fun.call(obj,arg1,arg2)</code>的<code>fun()</code>中的this关键字的值是obj，这样就可以将<code>call()</code>和对象冒充结合起来，将对象冒充的中赋值、调用和删除替换掉。</p>
+<pre><code><span class="function"><span class="keyword">function</span> <span class="title">ClassB</span><span class="params">(sColor, sName)</span> </span>{
+    <span class="comment">//this.newMethod = ClassA;</span>
+    <span class="comment">//this.newMethod(sColor);</span>
+    <span class="comment">//delete this.newMethod;</span>
+    ClassA.call(ClassB,sColor);
+
+    <span class="keyword">this</span>.name = sName;
+    <span class="keyword">this</span>.sayName = <span class="function"><span class="keyword">function</span><span class="params">()</span>｛
+        <span class="title">console</span>.<span class="title">log</span><span class="params">(this.name)</span>;
+    ｝;
+}        </span>
+</code></pre></li>
+<li><p><code>apply()</code><br><code>apply()</code>方法有两个参数，用作this的对象和要传递给函数的参数的数组。</p>
+</li>
 </ul>
-<p>下周甲方过来汇报</p>
-<ul>
-<li>配网论文</li>
-</ul>
-<p>月底提交，打算投电网吧，希望能在这学期搞定第一篇EI。</p>
+<h2 id="原型链">原型链</h2><p>原理：prototype对象是一个模板，要实例化的对象都是以这个模板为基础，prototype对象的任何属性和方法都被传递给那个类的所有实例。原型链利用这种功能来实现继承机制。</p>
+<pre><code><span class="function"><span class="keyword">function</span> <span class="title">ClassA</span><span class="params">()</span> </span>{
+};
+
+ClassA.prototype.color = <span class="string">"red"</span>;
+
+<span class="function"><span class="keyword">function</span> <span class="title">ClassB</span><span class="params">()</span> </span>{
+};
+
+**ClassB.prototype = <span class="keyword">new</span> ClassA();**
+</code></pre><p>与对象冒充相似，子类的所有属性和方法必须出现在prototype属性被赋值后，因为prototype属性被替换成了新对象。<br>原型链的弊端是不支持多重继承，prototype会被覆盖。</p>
+<h2 id="混合方式">混合方式</h2><p>创建类的最好方式是用构造函数方式定义属性，用原型方式定义方法，同样，对于继承，也是用对象冒充继承构造函数属性，用原型链继承函数的方法。</p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -153,7 +140,7 @@ https://github.com/baidu-ife/ife
 
   <div class="article-tags">
   
-  <span></span> <a href="/tags/日记/">日记</a>
+  <span></span> <a href="/tags/js/">js</a><a href="/tags/note/">note</a>
   </div>
 
 </div>
@@ -162,7 +149,7 @@ https://github.com/baidu-ife/ife
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://lizhipower.github.io/2015/04/23/2015-04-23/" data-title="2015-04-23 | ZhiLI" data-tsina="lzec" class="share clearfix">
+	  <div data-url="http://lizhipower.github.io/2015/05/10/js-notes3/" data-title="继承 | ZhiLI" data-tsina="lzec" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -175,14 +162,14 @@ https://github.com/baidu-ife/ife
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/2015/04/23/js-notes/" title="ECMAScript基础">
-  <strong>上一篇：</strong><br/>
-  <span>
-  ECMAScript基础</span>
+
+<div class="next">
+<a href="/2015/05/08/js-notes2/"  title="对象基础">
+ <strong>下一篇：</strong><br/> 
+ <span>对象基础
+</span>
 </a>
 </div>
-
 
 </nav>
 
@@ -194,7 +181,7 @@ https://github.com/baidu-ife/ife
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目錄</strong>
  
- <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#最近主要在做三件事"><span class="toc-number">1.</span> <span class="toc-text">最近主要在做三件事</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#对象冒充"><span class="toc-number">1.</span> <span class="toc-text">对象冒充</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#原型链"><span class="toc-number">2.</span> <span class="toc-text">原型链</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#混合方式"><span class="toc-number">3.</span> <span class="toc-text">混合方式</span></a></li></ol>
  
   </div>
 
