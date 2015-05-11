@@ -82,6 +82,150 @@
         <header class="article-info clearfix">
   <h1 itemprop="name">
     
+      <a href="/2015/05/11/js-notes4/" title="正则表达式" itemprop="url">正则表达式</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="https://plus.google.com/103939508165728687191?rel=author" title="ZhiLI" target="_blank" itemprop="author">ZhiLI</a>
+		
+  <p class="article-time">
+    <time datetime="2015-05-11T07:18:23.000Z" itemprop="datePublished"> 發表於 2015-05-11</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <h2 id="基本方法">基本方法</h2><ul>
+<li>RegExp<br>主要有<code>test()</code>和<code>exec()</code>两个方法。<ul>
+<li><code>test()</code>：如果给定字符串匹配这个模式，返回true，反之亦然。</li>
+<li><code>exec()</code>：返回一个数组，数组中的第一个条目是第一个匹配；其他是反向引用。</li>
+</ul>
+</li>
+<li>String<br>主要有<code>match()</code>和<code>search()</code>，另外<code>replace()</code>和<code>split()</code>也支持正则作为传入参数。<ul>
+<li><code>match()</code>：返回一个包含字符串中所有匹配的数组，其他是反向引用。</li>
+<li><code>search()</code>：返回字符串中出现的第一个匹配的位置，然而全局匹配正则表达式在<code>search()</code>时并不起作用。</li>
+<li><code>replace()</code>和<code>split()</code>都支持正则的匹配。</li>
+</ul>
+</li>
+</ul>
+<h2 id="简单模式">简单模式</h2><ul>
+<li><p>元字符<br>有<code>(</code>、<code>[</code>、<code>{</code>、<code>\</code>、<code>^</code>、<code>$</code>、<code>|</code>、<code>)</code>、<code>?</code>、<code>*</code>、<code>+</code>、<code>.</code>。需要用<code>\</code>进行转义，在非字面量表示的时候所有的反斜杠要用两个反斜杠来替换。</p>
+</li>
+<li><p>简单类<br><code>/[bcf]at/</code>匹配所有的<code>bat</code>、<code>cat</code>和<code>fat</code>。</p>
+</li>
+<li><p>负向类<br><code>/[^bc]at/</code>匹配所有含有<code>at</code>但是不以<code>b</code>和<code>c</code>开头的字符串。</p>
+</li>
+<li><p>范围类<br><code>[a-z]</code>表示所有小写字母，<code>[num[1-4]]</code>这样的形式很方便。</p>
+</li>
+<li><p>组合类<br>是有集中其他的类组合而成的字符类。</p>
+</li>
+<li><p>量词</p>
+<ul>
+<li><code>{n,m}</code>表示至少n次，至多m次</li>
+<li><code>?</code>等价于<code>{0,1}</code></li>
+<li><code>*</code>等价于<code>{0,}</code></li>
+<li><code>+</code>等价于<code>{1,}</code></li>
+<li><code>{n}</code>等价于<code>{n,n}</code></li>
+</ul>
+</li>
+</ul>
+<h2 id="复杂模式">复杂模式</h2><p>通过分组、反向引用、前瞻等一些强大的正则表达式功能，可以方便地使用正则表达式进行复杂的字符串操作。</p>
+<ul>
+<li><p>分组</p>
+<pre><code><span class="variable"><span class="keyword">var</span> str</span> = <span class="string">"dogdog"</span>;
+<span class="variable"><span class="keyword">var</span> regDog</span> = /(dog)+/;
+str.match(regDog);
+</code></pre><p>可以匹配字符串中多次出现的<code>dog</code>。并且，分组可以嵌套，通过嵌套和不同的组合可以实现复杂的分组。</p>
+</li>
+<li><p>反向引用</p>
+</li>
+</ul>
+<p>在表达式计算完成后，每个分组都被存放在一个特殊的地方以备将来使用，这些存储在分组中的特殊值，我们称之为反向引用。反向引用是按照从左到右的左括号字符的顺序进行创建和编号的。<br>例如，<code>(A?(B?(C?)))</code>将包含三个反向引用：<code>(A?(B?(C?)))</code>、<code>(B?(C?))</code>、<code>(C?)</code>。</p>
+<p>反向引用主要有三种使用方式。</p>
+<ol>
+<li><p>reg.$1</p>
+<pre><code><span class="keyword">var</span> str = <span class="string">"dagdbgdcg"</span>
+<span class="keyword">var</span> <span class="keyword">reg</span> = /(dag)(dbg)(dcg)/;
+str.<span class="literal">match</span>(<span class="keyword">reg</span>);
+console.<span class="literal">log</span>(RegExp.<span class="label">$1</span>);
+</code></pre></li>
+<li><p>/(reg)\1/</p>
+<pre><code><span class="keyword">var</span> str = <span class="string">"dagdagdog"</span>
+<span class="keyword">var</span> <span class="keyword">reg</span> = /(dag)\1/;
+str.<span class="literal">match</span>(<span class="keyword">reg</span>);
+console.<span class="literal">log</span>(RegExp.<span class="label">$1</span>);
+</code></pre></li>
+<li><p>replace(reg,”$2 $1”)</p>
+<pre><code><span class="keyword">var</span> str = <span class="string">"1234 2345"</span>
+<span class="keyword">var</span> <span class="keyword">reg</span> = /(\<span class="keyword">d</span>{4}) (\1)/;
+<span class="keyword">var</span> newStr = str.<span class="keyword">replace</span>(<span class="keyword">reg</span>, <span class="string">"$2 $1"</span>);
+</code></pre></li>
+</ol>
+<p>这里需要注意的是对于2种的<code>\1</code>的使用，是匹配出来的值，而不是匹配方式。另外，在左括号后加上<code>?:</code>可以创建非捕获分组，即可不存储反向引用的结果。</p>
+<ul>
+<li><p>候选<br><code>|</code>是正则表达式的候选操作符。</p>
+<pre><code><span class="keyword">var</span> str = <span class="string">"蛤蛤和长者"</span>;
+<span class="keyword">var</span> <span class="keyword">reg</span> = /蛤蛤|长者/<span class="keyword">g</span>;
+str = str.<span class="keyword">replace</span>(<span class="keyword">reg</span>,<span class="string">"*****"</span>);
+
+<span class="keyword">var</span> str = <span class="string">"蛤蛤和长者"</span>;
+<span class="keyword">var</span> <span class="keyword">reg</span> = /蛤蛤|长者/<span class="keyword">g</span>;
+<span class="comment">//这里的sMatch是reg匹配到的结果数组中的元素</span>
+str = str.<span class="keyword">replace</span>(<span class="keyword">reg</span>,function(sMatch){<span class="keyword">return</span> sMatch.<span class="keyword">replace</span>(/./<span class="keyword">g</span>,<span class="string">"*"</span>)});
+</code></pre></li>
+<li><p>前瞻</p>
+<ul>
+<li>正向前瞻<code>bed(?=room)</code>表示查询<em>接下来</em>出现的<em>是</em>括号中的内容</li>
+<li>负向前瞻<code>room(?！red)</code>表示查询<em>接下来</em>出现的<em>不是</em>括号中的内容。</li>
+<li>并且，前瞻不会出现在反向引用的结果中，分组不会考虑前瞻的存在。</li>
+</ul>
+</li>
+<li><p>边界<br>  <code>^</code>:行开头<br>  <code>$</code>:行结尾<br>  <code>\b</code>:单词边界<br>  <code>\B</code>:非单词的边界</p>
+</li>
+<li><p>多行模式<br><code>/m</code>表示多行模式，多行模式会改变<code>^</code>和<code>$</code>的边界行为，是的<code>\n</code>前后也为边界。</p>
+</li>
+</ul>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/js/">js</a><a href="/tags/note/">note</a>
+  </div>
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
       <a href="/2015/05/10/js-notes3/" title="继承" itemprop="url">继承</a>
   </h1>
   <p class="article-author">By
@@ -606,11 +750,11 @@ function f1(){
 		<ul class="clearfix">
 		
 			
-				<li><a href="/tags/js/" title="js">js<sup>3</sup></a></li>
+				<li><a href="/tags/js/" title="js">js<sup>4</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/note/" title="note">note<sup>3</sup></a></li>
+				<li><a href="/tags/note/" title="note">note<sup>4</sup></a></li>
 			
 		
 			
