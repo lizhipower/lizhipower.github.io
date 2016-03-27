@@ -49,7 +49,7 @@
 				<h1 class="site-name"><a href="/" title="ZhiLI">ZhiLI</a></h1>
 				<h2 class="blog-motto"></h2>
 			</div>
-			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
 			</a></div>
 			<nav class="animated">
 				<ul>
@@ -65,7 +65,7 @@
  					
 						<form class="search">
 							<label>Search</label>
-						<input type="text" id="ts-search-input" name="q" size="30" placeholder="搜索"><br>
+						<input type="text" id="ts-search-input" name="q" size="30" placeholder="Search"><br>
 						</form>
 					
 					</li>
@@ -82,6 +82,256 @@
         <header class="article-info clearfix">
   <h1 itemprop="name">
     
+      <a href="/2016/04/01/String对象总结/" title="String对象总结" itemprop="url">String对象总结</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="https://plus.google.com/103939508165728687191?rel=author" title="ZhiLI" target="_blank" itemprop="author">ZhiLI</a>
+		
+  <p class="article-time">
+    <time datetime="2016-04-01T13:02:34.000Z" itemprop="datePublished"> Published 2016-04-01</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>重头学js吧，按照winter的说法学呗，全部打印出来，一个一个去学，去研究。希望这一次的js学习笔记能够坚持下去，有空就写一篇。</p>
+<h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>在JavaScript中String对象用于处理字符串文本。</p>
+<h2 id="创建String对象"><a href="#创建String对象" class="headerlink" title="创建String对象"></a>创建String对象</h2><ul>
+<li>new String(s);</li>
+<li>String(s);</li>
+</ul>
+<p>其中，参数<code>s</code>可以是原始字符串值，也可以是一个<code>String对象</code>。</p>
+<ul>
+<li>当<code>String()</code>和<code>new</code>一起作为构造函数使用时，它返回一个新创建的<code>String对象</code>。</li>
+<li>当单独调用<code>String()</code>时，它将<code>s</code>转化成原始的字符串，并返回转换后的值。</li>
+</ul>
+<h2 id="String对象属性"><a href="#String对象属性" class="headerlink" title="String对象属性"></a>String对象属性</h2><ul>
+<li>constructor: 对创建该对象的函数的引用</li>
+<li>length: 字符串的长度</li>
+<li>prototype: 原型，可以像<code>String对象</code>添加属性和方法</li>
+</ul>
+<h2 id="String对象方法"><a href="#String对象方法" class="headerlink" title="String对象方法"></a>String对象方法</h2><p>主要分为4类：</p>
+<ul>
+<li>HTML标签类</li>
+<li>字符串操作</li>
+<li>字符串查找</li>
+</ul>
+<h3 id="HTML标签类"><a href="#HTML标签类" class="headerlink" title="HTML标签类"></a>HTML标签类</h3><p>个人感觉没啥用，毕竟现在都要用css来做样式了。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">方法</th>
+<th style="text-align:center">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><code>anchor()</code></td>
+<td style="text-align:center">创建锚点</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>big()</code></td>
+<td style="text-align:center">大号字体</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>blink()</code></td>
+<td style="text-align:center">闪烁</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>bold()</code></td>
+<td style="text-align:center">粗体</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>fixed()</code></td>
+<td style="text-align:center">打字机体</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>fontcolor()</code></td>
+<td style="text-align:center">设置字体颜色</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>fontsize()</code></td>
+<td style="text-align:center">设置字体大小</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>italics()</code></td>
+<td style="text-align:center">斜体</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>link()</code></td>
+<td style="text-align:center">超链接</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>small()</code></td>
+<td style="text-align:center">小号字体</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>strike()</code></td>
+<td style="text-align:center">删除线</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>sup()</code></td>
+<td style="text-align:center">上标</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>sub()</code></td>
+<td style="text-align:center">下标</td>
+</tr>
+</tbody>
+</table>
+<h3 id="字符串操作"><a href="#字符串操作" class="headerlink" title="字符串操作"></a>字符串操作</h3><p>主要实现字符串的大小写转化、拆分、连接等方法。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">方法</th>
+<th style="text-align:left">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><code>concat()</code></td>
+<td style="text-align:left">连接字符串</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>split()</code></td>
+<td style="text-align:left">将字符串拆分为数组</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>toLocaleLowerCase()</code></td>
+<td style="text-align:left">转化为本地化小写</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>toLocaleUpperCase()</code></td>
+<td style="text-align:left">转化为本地化大写</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>toLowerCase()</code></td>
+<td style="text-align:left">转化为小写</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>toUpperCase()</code></td>
+<td style="text-align:left">转化为大写</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>fromCharCode()</code></td>
+<td style="text-align:left">将一个或多个Unicode值转换为字符串</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>toString()</code></td>
+<td style="text-align:left">转化为原始字符串</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>valueOf()</code></td>
+<td style="text-align:left">返回字符串对象的原始值</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>slice()</code></td>
+<td style="text-align:left">提取字符串的片断，并在<em>新的字符串</em>中返回被提取的部分。</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>substr()</code></td>
+<td style="text-align:left">从起始索引号提取字符串中指定数目的字符，并在<em>新的字符串</em>中返回被提取的部分。</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>substring()</code></td>
+<td style="text-align:left">提取字符串中两个指定的索引号之间的字符，并在<em>新的字符串</em>中返回被提取的部分。</td>
+</tr>
+</tbody>
+</table>
+<p>值得注意的是<code>slice()</code>、<code>substr()</code>、<code>substring()</code>都是用来实现字符串的拆分，他们的区别主要在方法的对第二参数、负参数和第二参数小于第一参数的理解上。</p>
+<ul>
+<li><code>slice()</code>和<code>substring()</code>的第二个参数表示结束位置，<code>substr()</code>表示子串长度。</li>
+<li>第一参数为负时，<code>slice()</code>和<code>substr()</code>表示从字符串尾开始计算位置，<code>substring()</code>视为0；第二参数为负时，<code>slice()</code>表示从字符串尾开始计算位置，<code>substr()</code>认为截取长度为0，返回空字符串，<code>substring()</code>视为0。</li>
+<li>第一参数大于第二参数时，<code>slice()</code>结算为正值后，若开始位置在结束位置后返回空串，其他正常，<code>substring()</code>交换参数进行拆分。</li>
+</ul>
+<p>总的来说，<code>slice()</code>和<code>substr()</code>思想类似，功能区别在第二参数，<code>substring()</code>对负值的理解比较差。</p>
+<h3 id="字符串查找"><a href="#字符串查找" class="headerlink" title="字符串查找"></a>字符串查找</h3><p>实现了接受一个正则表达式或一个位置，对字符串进行查找的方法。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">方法</th>
+<th style="text-align:left">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><code>charat()</code></td>
+<td style="text-align:left">连接字符串</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>charCodeAt()</code></td>
+<td style="text-align:left">返回在指定的位置的字符的 Unicode 编码</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>indexOf()</code></td>
+<td style="text-align:left">检索字符串</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>lastIndexOf()</code></td>
+<td style="text-align:left">从后向前搜索字符串</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>search()</code></td>
+<td style="text-align:left">检索与正则表达式相匹配的值</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>match()</code></td>
+<td style="text-align:left">找到一个或多个正则表达式的匹配</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>replace()</code></td>
+<td style="text-align:left">替换与正则表达式匹配的子串</td>
+</tr>
+</tbody>
+</table>
+<p>值得注意的是<code>match()</code>返回的是匹配的值的数组，<code>search()</code>返回的是匹配的值的位置。</p>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/前端/">前端</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/js/">js</a><a href="/tags/note/">note</a>
+  </div>
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
       <a href="/2016/03/27/前端工作流的一些尝试/" title="前端工作流的一些尝试" itemprop="url">前端工作流的一些尝试</a>
   </h1>
   <p class="article-author">By
@@ -89,7 +339,7 @@
 		<a href="https://plus.google.com/103939508165728687191?rel=author" title="ZhiLI" target="_blank" itemprop="author">ZhiLI</a>
 		
   <p class="article-time">
-    <time datetime="2016-03-27T03:49:51.000Z" itemprop="datePublished"> 发表于 2016-03-27</time>
+    <time datetime="2016-03-27T03:49:51.000Z" itemprop="datePublished"> Published 2016-03-27</time>
     
   </p>
 </header>
@@ -223,7 +473,7 @@ new webpack.optimize.CommonsChunkPlugin(&quot;commons&quot;, &quot;commons.js&qu
 		<a href="https://plus.google.com/103939508165728687191?rel=author" title="ZhiLI" target="_blank" itemprop="author">ZhiLI</a>
 		
   <p class="article-time">
-    <time datetime="2015-05-11T07:18:23.000Z" itemprop="datePublished"> 发表于 2015-05-11</time>
+    <time datetime="2015-05-11T07:18:23.000Z" itemprop="datePublished"> Published 2015-05-11</time>
     
   </p>
 </header>
@@ -369,7 +619,7 @@ str = str.replace(reg,function(sMatch){return sMatch.replace(/./g,&quot;*&quot;)
 		<a href="https://plus.google.com/103939508165728687191?rel=author" title="ZhiLI" target="_blank" itemprop="author">ZhiLI</a>
 		
   <p class="article-time">
-    <time datetime="2015-05-10T04:49:41.000Z" itemprop="datePublished"> 发表于 2015-05-10</time>
+    <time datetime="2015-05-10T04:49:41.000Z" itemprop="datePublished"> Published 2015-05-10</time>
     
   </p>
 </header>
@@ -457,7 +707,7 @@ function ClassB() {
 		<a href="https://plus.google.com/103939508165728687191?rel=author" title="ZhiLI" target="_blank" itemprop="author">ZhiLI</a>
 		
   <p class="article-time">
-    <time datetime="2015-05-08T06:43:38.000Z" itemprop="datePublished"> 发表于 2015-05-08</time>
+    <time datetime="2015-05-08T06:43:38.000Z" itemprop="datePublished"> Published 2015-05-08</time>
     
   </p>
 </header>
@@ -595,7 +845,7 @@ Car.prototype.showColor = function() {
 		<a href="https://plus.google.com/103939508165728687191?rel=author" title="ZhiLI" target="_blank" itemprop="author">ZhiLI</a>
 		
   <p class="article-time">
-    <time datetime="2015-05-05T13:43:02.000Z" itemprop="datePublished"> 发表于 2015-05-05</time>
+    <time datetime="2015-05-05T13:43:02.000Z" itemprop="datePublished"> Published 2015-05-05</time>
     
   </p>
 </header>
@@ -657,7 +907,7 @@ Car.prototype.showColor = function() {
 		<a href="https://plus.google.com/103939508165728687191?rel=author" title="ZhiLI" target="_blank" itemprop="author">ZhiLI</a>
 		
   <p class="article-time">
-    <time datetime="2015-04-25T14:22:36.000Z" itemprop="datePublished"> 发表于 2015-04-25</time>
+    <time datetime="2015-04-25T14:22:36.000Z" itemprop="datePublished"> Published 2015-04-25</time>
     
   </p>
 </header>
@@ -728,7 +978,7 @@ Car.prototype.showColor = function() {
 		<a href="https://plus.google.com/103939508165728687191?rel=author" title="ZhiLI" target="_blank" itemprop="author">ZhiLI</a>
 		
   <p class="article-time">
-    <time datetime="2015-04-23T07:50:21.000Z" itemprop="datePublished"> 发表于 2015-04-23</time>
+    <time datetime="2015-04-23T07:50:21.000Z" itemprop="datePublished"> Published 2015-04-23</time>
     
   </p>
 </header>
@@ -838,7 +1088,7 @@ result(); // 999
 		<a href="https://plus.google.com/103939508165728687191?rel=author" title="ZhiLI" target="_blank" itemprop="author">ZhiLI</a>
 		
   <p class="article-time">
-    <time datetime="2015-04-23T06:37:15.000Z" itemprop="datePublished"> 发表于 2015-04-23</time>
+    <time datetime="2015-04-23T06:37:15.000Z" itemprop="datePublished"> Published 2015-04-23</time>
     
   </p>
 </header>
@@ -894,19 +1144,19 @@ result(); // 999
 
 
 </div>
-      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+      <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
 
 <div id="asidepart">
-<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
+<div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
 <aside class="clearfix">
 
   
 <div class="categorieslist">
-	<p class="asidetitle">分类</p>
+	<p class="asidetitle">Categories</p>
 		<ul>
 		
 		  
-			<li><a href="/categories/前端/" title="前端">前端<sup>1</sup></a></li>
+			<li><a href="/categories/前端/" title="前端">前端<sup>2</sup></a></li>
 		  
 		
 		</ul>
@@ -915,15 +1165,15 @@ result(); // 999
 
   
 <div class="tagslist">
-	<p class="asidetitle">标签</p>
+	<p class="asidetitle">Tags</p>
 		<ul class="clearfix">
 		
 			
-				<li><a href="/tags/js/" title="js">js<sup>4</sup></a></li>
+				<li><a href="/tags/js/" title="js">js<sup>5</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/note/" title="note">note<sup>4</sup></a></li>
+				<li><a href="/tags/note/" title="note">note<sup>5</sup></a></li>
 			
 		
 			
@@ -959,7 +1209,7 @@ result(); // 999
 
 
   <div class="linkslist">
-  <p class="asidetitle">友情链接</p>
+  <p class="asidetitle">Links</p>
     <ul>
         
           <li>
@@ -978,7 +1228,7 @@ result(); // 999
 </div>
 
   <div class="rsspart">
-	<a href="/atom.xml" target="_blank" title="rss">RSS 订阅</a>
+	<a href="/atom.xml" target="_blank" title="rss">RSS</a>
 </div>
 
 </aside>
@@ -1133,7 +1383,7 @@ $(document).ready(function(){
 <!-- Totop Begin -->
 
 	<div id="totop">
-	<a title="返回顶部"><img src="/img/scrollup.png"/></a>
+	<a title="Back to Top"><img src="/img/scrollup.png"/></a>
 	</div>
 	<script src="/js/totop.js"></script>
 
