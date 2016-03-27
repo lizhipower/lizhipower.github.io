@@ -53,7 +53,7 @@
         
           <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Søk"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
@@ -91,11 +91,11 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>最近一直在研究React，在了解完React的一些写法和Flux构建之后，自然开始想要让自己的代码更加模块化一点，或者说组件化一点。我希望自己今后的目录应该是图1这个样子。</p>
-<p><img src="https://img1.doubanio.com/view/photo/large/public/p2327188679.jpg" alt="图1" title="图1"></p>
+<p><img src="http://ww4.sinaimg.cn/mw690/7314808bgw1f2bazkjo84j206q0ck0tf.jpg" alt="图1" title="图1"></p>
 <p>图中项目采用了Flux构架，因此会有actions|stores|utils，并且不同Router会映射到不同pages，而体现组件化的就是components文件夹，其结构如图2所示。</p>
-<p><img src="https://img1.doubanio.com/view/photo/photo/public/p2327189313.jpg" alt="图2" title="图2"></p>
+<p><img src="http://ww4.sinaimg.cn/mw690/7314808bgw1f2bazlek6ej206704xt8v.jpg" alt="图2" title="图2"></p>
 <p>可以看到里面包含两个组件，每个组件又包含了不同逻辑、视图。我觉得这样来进行应用的编写更能够凸显图3中对于组件化的定义。</p>
-<p><img src="https://img3.doubanio.com/view/photo/photo/public/p2327189945.jpg" alt="图3" title="图3"></p>
+<p><img src="http://ww4.sinaimg.cn/mw690/7314808bgw1f2bazloo4kj20gh0a7my9.jpg" alt="图3" title="图3"></p>
 <p>这样一来就需要采用一些比较自动化的构建工作流，既然采用了React，那么就必然绕不开webpack，而就在前一年，gulp又那么火，所以我这里主要有两种情况，分别由于我不同的目的。</p>
 <p>##webapck<br>关于webpack的介绍如下：<br><blockquote><p>Webpack是一个前端资源加载/打包工具，只需要相对简单的配置就可以提供前端工程化需要的各种功能，并且如果有需要它还可以被整合到其他比如 Grunt / Gulp 的工作流。</p>
 <footer><strong>hulufei</strong><cite><a href="https://hulufei.gitbooks.io/react-tutorial/content/webpack.html" target="_blank" rel="external">Webpack 配置 React 开发环境</a></cite></footer></blockquote></p>
@@ -188,7 +188,7 @@ new webpack.optimize.CommonsChunkPlugin(&quot;commons&quot;, &quot;commons.js&qu
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Categories</h3>
+    <h3 class="widget-title">Kategorier</h3>
     <div class="widget">
       <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/前端/">前端</a></li></ul>
     </div>
@@ -217,7 +217,7 @@ new webpack.optimize.CommonsChunkPlugin(&quot;commons&quot;, &quot;commons.js&qu
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
+    <h3 class="widget-title">Arkiv</h3>
     <div class="widget">
       <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a></li></ul>
     </div>
@@ -227,7 +227,7 @@ new webpack.optimize.CommonsChunkPlugin(&quot;commons&quot;, &quot;commons.js&qu
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
+    <h3 class="widget-title">Siste innlegg</h3>
     <div class="widget">
       <ul>
         
