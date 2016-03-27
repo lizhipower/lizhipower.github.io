@@ -4,39 +4,26 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>前端工作流的一些尝试 | ZhiLI</title>
+    <title>继承 | ZhiLI</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="ZhiLI">
     
 
     
-    <meta name="description" content="最近一直在研究React，在了解完React的一些写法和Flux构建之后，自然开始想要让自己的代码更加模块化一点，或者说组件化一点。我希望自己今后的目录应该是图1这个样子。
-
-图中项目采用了Flux构架，因此会有actions|stores|utils，并且不同Router会映射到不同pages，而体现组件化的就是components文件夹，其结构如图2所示。
-
-可以看到里面包含两个组件，每个组件">
+    <meta name="description" content="##对象冒充
+原理：构造函数使用this关键字给所有属性和方法赋值（采用类声明的构造函数方式）。以为构造函数只是一个函数，可以使ClassA的构造函数成为ClassB的方法，然后调用它。ClassB就会收到ClassA的构造函数中定义的属性和方法。这里，其实是把ClassA作为常规函数来建立继承机制，而不是作为构造函数。需要注意的是，所有的新属性和新方法都必须在删除了新方法之后定义，否则，新属性和">
 <meta property="og:type" content="article">
-<meta property="og:title" content="前端工作流的一些尝试">
-<meta property="og:url" content="http://lizhipower.github.io/2016/03/27/前端工作流的一些尝试/index.html">
+<meta property="og:title" content="继承">
+<meta property="og:url" content="http://lizhipower.github.io/2015/05/10/js-notes3/index.html">
 <meta property="og:site_name" content="ZhiLI">
-<meta property="og:description" content="最近一直在研究React，在了解完React的一些写法和Flux构建之后，自然开始想要让自己的代码更加模块化一点，或者说组件化一点。我希望自己今后的目录应该是图1这个样子。
-
-图中项目采用了Flux构架，因此会有actions|stores|utils，并且不同Router会映射到不同pages，而体现组件化的就是components文件夹，其结构如图2所示。
-
-可以看到里面包含两个组件，每个组件">
-<meta property="og:image" content="http://ww4.sinaimg.cn/mw690/7314808bgw1f2bazkjo84j206q0ck0tf.jpg">
-<meta property="og:image" content="http://ww4.sinaimg.cn/mw690/7314808bgw1f2bazlek6ej206704xt8v.jpg">
-<meta property="og:image" content="http://ww4.sinaimg.cn/mw690/7314808bgw1f2bazloo4kj20gh0a7my9.jpg">
-<meta property="og:updated_time" content="2016-03-27T04:24:17.542Z">
+<meta property="og:description" content="##对象冒充
+原理：构造函数使用this关键字给所有属性和方法赋值（采用类声明的构造函数方式）。以为构造函数只是一个函数，可以使ClassA的构造函数成为ClassB的方法，然后调用它。ClassB就会收到ClassA的构造函数中定义的属性和方法。这里，其实是把ClassA作为常规函数来建立继承机制，而不是作为构造函数。需要注意的是，所有的新属性和新方法都必须在删除了新方法之后定义，否则，新属性和">
+<meta property="og:updated_time" content="2015-05-10T07:41:49.216Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="前端工作流的一些尝试">
-<meta name="twitter:description" content="最近一直在研究React，在了解完React的一些写法和Flux构建之后，自然开始想要让自己的代码更加模块化一点，或者说组件化一点。我希望自己今后的目录应该是图1这个样子。
-
-图中项目采用了Flux构架，因此会有actions|stores|utils，并且不同Router会映射到不同pages，而体现组件化的就是components文件夹，其结构如图2所示。
-
-可以看到里面包含两个组件，每个组件">
-<meta name="twitter:image" content="http://ww4.sinaimg.cn/mw690/7314808bgw1f2bazkjo84j206q0ck0tf.jpg">
+<meta name="twitter:title" content="继承">
+<meta name="twitter:description" content="##对象冒充
+原理：构造函数使用this关键字给所有属性和方法赋值（采用类声明的构造函数方式）。以为构造函数只是一个函数，可以使ClassA的构造函数成为ClassB的方法，然后调用它。ClassB就会收到ClassA的构造函数中定义的属性和方法。这里，其实是把ClassA作为常规函数来建立继承机制，而不是作为构造函数。需要注意的是，所有的新属性和新方法都必须在删除了新方法之后定义，否则，新属性和">
 <meta name="twitter:creator" content="@lizhi_zju">
 <link rel="publisher" href="103939508165728687191">
 
@@ -97,14 +84,14 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2016/03/27/前端工作流的一些尝试/" title="前端工作流的一些尝试" itemprop="url">前端工作流的一些尝试</a>
+      <a href="/2015/05/10/js-notes3/" title="继承" itemprop="url">继承</a>
   </h1>
   <p class="article-author">By
        
 		<a href="https://plus.google.com/103939508165728687191?rel=author" title="ZhiLI" target="_blank" itemprop="author">ZhiLI</a>
 		
   <p class="article-time">
-    <time datetime="2016-03-27T03:49:51.000Z" itemprop="datePublished"> 发表于 2016-03-27</time>
+    <time datetime="2015-05-10T04:49:41.000Z" itemprop="datePublished"> 发表于 2015-05-10</time>
     
   </p>
 </header>
@@ -113,99 +100,53 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
 		
-			
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#混合方式"><span class="toc-number">1.</span> <span class="toc-text">混合方式</span></a></li></ol>
 		
 		</div>
 		
-		<p>最近一直在研究React，在了解完React的一些写法和Flux构建之后，自然开始想要让自己的代码更加模块化一点，或者说组件化一点。我希望自己今后的目录应该是图1这个样子。</p>
-<p><img src="http://ww4.sinaimg.cn/mw690/7314808bgw1f2bazkjo84j206q0ck0tf.jpg" alt="图1" title="图1"></p>
-<p>图中项目采用了Flux构架，因此会有actions|stores|utils，并且不同Router会映射到不同pages，而体现组件化的就是components文件夹，其结构如图2所示。</p>
-<p><img src="http://ww4.sinaimg.cn/mw690/7314808bgw1f2bazlek6ej206704xt8v.jpg" alt="图2" title="图2"></p>
-<p>可以看到里面包含两个组件，每个组件又包含了不同逻辑、视图。我觉得这样来进行应用的编写更能够凸显图3中对于组件化的定义。</p>
-<p><img src="http://ww4.sinaimg.cn/mw690/7314808bgw1f2bazloo4kj20gh0a7my9.jpg" alt="图3" title="图3"></p>
-<p>这样一来就需要采用一些比较自动化的构建工作流，既然采用了React，那么就必然绕不开webpack，而就在前一年，gulp又那么火，所以我这里主要有两种情况，分别由于我不同的目的。</p>
-<p>##webapck<br>关于webpack的介绍如下：<br><blockquote><p>Webpack是一个前端资源加载/打包工具，只需要相对简单的配置就可以提供前端工程化需要的各种功能，并且如果有需要它还可以被整合到其他比如 Grunt / Gulp 的工作流。</p>
-<footer><strong>hulufei</strong><cite><a href="https://hulufei.gitbooks.io/react-tutorial/content/webpack.html" target="_blank" rel="external">Webpack 配置 React 开发环境</a></cite></footer></blockquote></p>
-<p>我的配置如下：</p>
-<pre><code>var webpack = require(&apos;webpack&apos;);
-var path = require(&apos;path&apos;);
-var ExtractTextPlugin = require(&quot;extract-text-webpack-plugin&quot;);
-var HtmlWebpackPlugin = require(&apos;html-webpack-plugin&apos;);
-var indexPath = path.resolve(__dirname, &apos;src/index.js&apos;);
-var outputPath = path.resolve(__dirname, &apos;public&apos;);
-module.exports = {
-  entry: [
-    &apos;webpack/hot/dev-server&apos;,
-    indexPath
-  ],
-  output: {
-    path: outputPath,
-    filename: &apos;bundle.js&apos;
-  },
-  devtool: &apos;source-map&apos;,
-  &apos;display-error-details&apos;: true,
-  module: {
-    loaders: [
-      {
-        test: /\.js?$/,
-        exclude: /node_modules/,
-        loaders: [&apos;react-hot&apos;, &apos;babel?presets[]=react,presets[]=es2015,presets[]=stage-0&apos;]
-      },
-      {
-        test: /.less$/,
-        loader: ExtractTextPlugin.extract(&apos;css!less&apos;)
-      },
-      {
-        test: /\.(jpg|png|mp3|svg)$/,
-        loaders: [&apos;file?name=assets/[name].[ext]&apos;]
-      }
-    ]
-  },
-  plugins: [
-    // new webpack.HotModuleReplacementPlugin(),
-    new webpack.NoErrorsPlugin(),
-new webpack.optimize.CommonsChunkPlugin(&quot;commons&quot;, &quot;commons.js&quot;),
-    new webpack.ProvidePlugin({
-      &apos;React&apos;: path.resolve(__dirname, &quot;node_modules/react/react&quot;),
-      &apos;ReactDOM&apos;: path.resolve(__dirname, &quot;node_modules/react-dom/dist/react-dom&quot;),
-      &quot;jQuery&quot;: path.resolve(__dirname, &quot;node_modules/jquery/dist/jquery&quot;),
-      &quot;$&quot;: path.resolve(__dirname, &quot;node_modules/jquery/dist/jquery&quot;)
-    }),
-    new ExtractTextPlugin(&quot;[name].css?[hash]-[chunkhash]&quot;, {
-      allChunks: true,
-      disable: false
-    }),
-    new HtmlWebpackPlugin({
-      title: &apos;React Blog in ES6&apos;,
-      template: &apos;./src/index.html&apos;
-    })
-  ]
+		<p>##对象冒充</p>
+<p>原理：构造函数使用this关键字给所有属性和方法赋值（采用类声明的构造函数方式）。以为构造函数只是一个函数，可以使ClassA的构造函数成为ClassB的方法，然后调用它。ClassB就会收到ClassA的构造函数中定义的属性和方法。这里，其实是把ClassA作为常规函数来建立继承机制，而不是作为构造函数。需要注意的是，所有的新属性和新方法都必须在删除了新方法之后定义，否则，新属性和新方法可能会被继承到的属性和方法覆盖。</p>
+<p>并且，对象冒充可以支持多重继承，同样的，如果继承的不同类中存在相同的方法和属性，也会存在前者被后者被覆盖的问题。</p>
+<p>随着对象冒充的流行，ECMAScript为Function对象加入了<code>call()</code>和<code>apply()</code>。</p>
+<ul>
+<li><p><code>call()</code><br><code>call()</code>的第一个参数是obj，说明<code>fun.call(obj,arg1,arg2)</code>的<code>fun()</code>中的this关键字的值是obj，这样就可以将<code>call()</code>和对象冒充结合起来，将对象冒充的中赋值、调用和删除替换掉。</p>
+<pre><code>function ClassB(sColor, sName) {
+    //this.newMethod = ClassA;
+    //this.newMethod(sColor);
+    //delete this.newMethod;
+    ClassA.call(ClassB,sColor);
+
+    this.name = sName;
+    this.sayName = function()｛
+        console.log(this.name);
+    ｝;
+}        
+</code></pre></li>
+<li><p><code>apply()</code><br><code>apply()</code>方法有两个参数，用作this的对象和要传递给函数的参数的数组。</p>
+</li>
+</ul>
+<p>##原型链</p>
+<p>原理：prototype对象是一个模板，要实例化的对象都是以这个模板为基础，prototype对象的任何属性和方法都被传递给那个类的所有实例。原型链利用这种功能来实现继承机制。</p>
+<pre><code>function ClassA() {
 };
-</code></pre><p>首先是在entry上定义入口文件，然后再output定义生成文件，loaders里面是对于不同的文件的采用的loader。</p>
-<p>对于React需要用到babel来进行转化，并且preset应该有react、es2015和stage-0。这样就可以在文件中按照es6的写法来写react了，会方便很多，因为es6提供了很多新的语法糖，还是挺适合React的。</p>
-<p>另外，对于不同styles可以采用不同loader，比如我采用的less那么就需要使用css和less的loader。对于一些静态文件，比如图片、svg等，则需要用到fileloader。</p>
-<p>最后就是一些插件，CommonsChunkPlugin用来将一些反复依赖的到第三方插件全部打包到一个common文件中，并且可以别名的形式出现，这样就不需要再文件中反复出现<code>import React from &#39;react&#39;</code>这样的引用，顺便可以在eslint中将这些规则关闭，可以节省一定的代码量。ExtractTextPlugin和HtmlWebpackPlugin这两个插件可以生成html文件并且自动引用样式文件。</p>
-<p>这样一来，在package.json文件中，只要在scripts就可以这样写：</p>
-<pre><code>&quot;scripts&quot;: {
-    &quot;build&quot;: &quot;webpack --progress --colors --watch&quot;,
-    &quot;dev&quot;: &quot;webpack-dev-server --progress --hot --inline --colors --content-base build&quot;,
-    &quot;dist&quot;: &quot;NODE_ENV=production webpack --progress --colors&quot;
-}
-</code></pre><p>就可以很方便地进行热开发已经最后的部署等操作。</p>
+
+ClassA.prototype.color = &quot;red&quot;;
+
+function ClassB() {
+};
+
+**ClassB.prototype = new ClassA();**
+</code></pre><p>与对象冒充相似，子类的所有属性和方法必须出现在prototype属性被赋值后，因为prototype属性被替换成了新对象。<br>原型链的弊端是不支持多重继承，prototype会被覆盖。</p>
+<h2 id="混合方式"><a href="#混合方式" class="headerlink" title="混合方式"></a>混合方式</h2><p>创建类的最好方式是用构造函数方式定义属性，用原型方式定义方法，同样，对于继承，也是用对象冒充继承构造函数属性，用原型链继承函数的方法。</p>
   
 	</div>
 		<footer class="article-footer clearfix">
 <div class="article-catetags">
 
-<div class="article-categories">
-  <span></span>
-  <a class="article-category-link" href="/categories/前端/">前端</a>
-</div>
-
 
   <div class="article-tags">
   
-  <span></span> <a href="/tags/工程化/">工程化</a><a href="/tags/gulp/">gulp</a><a href="/tags/webpack/">webpack</a>
+  <span></span> <a href="/tags/js/">js</a><a href="/tags/note/">note</a>
   </div>
 
 </div>
@@ -214,7 +155,7 @@ new webpack.optimize.CommonsChunkPlugin(&quot;commons&quot;, &quot;commons.js&qu
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://lizhipower.github.io/2016/03/27/前端工作流的一些尝试/" data-title="前端工作流的一些尝试 | ZhiLI" data-tsina="lzec" class="share clearfix">
+	  <div data-url="http://lizhipower.github.io/2015/05/10/js-notes3/" data-title="继承 | ZhiLI" data-tsina="lzec" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -227,11 +168,19 @@ new webpack.optimize.CommonsChunkPlugin(&quot;commons&quot;, &quot;commons.js&qu
 	
 <nav class="article-nav clearfix">
  
+ <div class="prev" >
+ <a href="/2015/05/11/js-notes4/" title="正则表达式">
+  <strong>上一篇：</strong><br/>
+  <span>
+  正则表达式</span>
+</a>
+</div>
+
 
 <div class="next">
-<a href="/2015/05/11/js-notes4/"  title="正则表达式">
+<a href="/2015/05/08/js-notes2/"  title="对象基础">
  <strong>下一篇：</strong><br/> 
- <span>正则表达式
+ <span>对象基础
 </span>
 </a>
 </div>
@@ -246,7 +195,7 @@ new webpack.optimize.CommonsChunkPlugin(&quot;commons&quot;, &quot;commons.js&qu
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
  
- 
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#混合方式"><span class="toc-number">1.</span> <span class="toc-text">混合方式</span></a></li></ol>
  
   </div>
 
