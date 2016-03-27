@@ -1,0 +1,601 @@
+
+ <!DOCTYPE HTML>
+<html >
+<head>
+  <meta charset="UTF-8">
+  
+    <title>正则表达式 | ZhiLI</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="ZhiLI">
+    
+
+    
+    <meta name="description" content="基本方法
+RegExp主要有test()和exec()两个方法。
+test()：如果给定字符串匹配这个模式，返回true，反之亦然。
+exec()：返回一个数组，数组中的第一个条目是第一个匹配；其他是反向引用。
+
+
+String主要有match()和search()，另外replace()和split()也支持正则作为传入参数。
+match()：返回一个包含字符串中所有匹配的数组，其他是反向引用。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="正则表达式">
+<meta property="og:url" content="http://lizhipower.github.io/2015/05/11/js-notes4/index.html">
+<meta property="og:site_name" content="ZhiLI">
+<meta property="og:description" content="基本方法
+RegExp主要有test()和exec()两个方法。
+test()：如果给定字符串匹配这个模式，返回true，反之亦然。
+exec()：返回一个数组，数组中的第一个条目是第一个匹配；其他是反向引用。
+
+
+String主要有match()和search()，另外replace()和split()也支持正则作为传入参数。
+match()：返回一个包含字符串中所有匹配的数组，其他是反向引用。">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="正则表达式">
+<meta name="twitter:description" content="基本方法
+RegExp主要有test()和exec()两个方法。
+test()：如果给定字符串匹配这个模式，返回true，反之亦然。
+exec()：返回一个数组，数组中的第一个条目是第一个匹配；其他是反向引用。
+
+
+String主要有match()和search()，另外replace()和split()也支持正则作为传入参数。
+match()：返回一个包含字符串中所有匹配的数组，其他是反向引用。">
+<meta name="twitter:creator" content="@lizhi_zju">
+<link rel="publisher" href="103939508165728687191">
+
+    
+    <link rel="alternative" href="/atom.xml" title="ZhiLI" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/jacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/jacman.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/logo.png" alt="ZhiLI" title="ZhiLI"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="ZhiLI">ZhiLI</a></h1>
+				<h2 class="blog-motto"></h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜單">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">Home</a></li>
+					
+						<li><a href="/archives">Archives</a></li>
+					
+						<li><a href="/about">About</a></li>
+					
+					<li>
+ 					
+						<form class="search">
+							<label>Search</label>
+						<input type="text" id="ts-search-input" name="q" size="30" placeholder="搜索"><br>
+						</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2015/05/11/js-notes4/" title="正则表达式" itemprop="url">正则表达式</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="https://plus.google.com/103939508165728687191?rel=author" title="ZhiLI" target="_blank" itemprop="author">ZhiLI</a>
+		
+  <p class="article-time">
+    <time datetime="2015-05-11T07:18:23.000Z" itemprop="datePublished"> 發表於 2015-05-11</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目錄</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#基本方法"><span class="toc-number">1.</span> <span class="toc-text">基本方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#简单模式"><span class="toc-number">2.</span> <span class="toc-text">简单模式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#复杂模式"><span class="toc-number">3.</span> <span class="toc-text">复杂模式</span></a></li></ol>
+		
+		</div>
+		
+		<h2 id="基本方法">基本方法</h2><ul>
+<li>RegExp<br>主要有<code>test()</code>和<code>exec()</code>两个方法。<ul>
+<li><code>test()</code>：如果给定字符串匹配这个模式，返回true，反之亦然。</li>
+<li><code>exec()</code>：返回一个数组，数组中的第一个条目是第一个匹配；其他是反向引用。</li>
+</ul>
+</li>
+<li>String<br>主要有<code>match()</code>和<code>search()</code>，另外<code>replace()</code>和<code>split()</code>也支持正则作为传入参数。<ul>
+<li><code>match()</code>：返回一个包含字符串中所有匹配的数组，其他是反向引用。</li>
+<li><code>search()</code>：返回字符串中出现的第一个匹配的位置，然而全局匹配正则表达式在<code>search()</code>时并不起作用。</li>
+<li><code>replace()</code>和<code>split()</code>都支持正则的匹配。</li>
+</ul>
+</li>
+</ul>
+<h2 id="简单模式">简单模式</h2><ul>
+<li><p>元字符<br>有<code>(</code>、<code>[</code>、<code>{</code>、<code>\</code>、<code>^</code>、<code>$</code>、<code>|</code>、<code>)</code>、<code>?</code>、<code>*</code>、<code>+</code>、<code>.</code>。需要用<code>\</code>进行转义，在非字面量表示的时候所有的反斜杠要用两个反斜杠来替换。</p>
+</li>
+<li><p>简单类<br><code>/[bcf]at/</code>匹配所有的<code>bat</code>、<code>cat</code>和<code>fat</code>。</p>
+</li>
+<li><p>负向类<br><code>/[^bc]at/</code>匹配所有含有<code>at</code>但是不以<code>b</code>和<code>c</code>开头的字符串。</p>
+</li>
+<li><p>范围类<br><code>[a-z]</code>表示所有小写字母，<code>[num[1-4]]</code>这样的形式很方便。</p>
+</li>
+<li><p>组合类<br>是有集中其他的类组合而成的字符类。</p>
+</li>
+<li><p>量词</p>
+<ul>
+<li><code>{n,m}</code>表示至少n次，至多m次</li>
+<li><code>?</code>等价于<code>{0,1}</code></li>
+<li><code>*</code>等价于<code>{0,}</code></li>
+<li><code>+</code>等价于<code>{1,}</code></li>
+<li><code>{n}</code>等价于<code>{n,n}</code></li>
+</ul>
+</li>
+</ul>
+<h2 id="复杂模式">复杂模式</h2><p>通过分组、反向引用、前瞻等一些强大的正则表达式功能，可以方便地使用正则表达式进行复杂的字符串操作。</p>
+<ul>
+<li><p>分组</p>
+<pre><code><span class="variable"><span class="keyword">var</span> str</span> = <span class="string">"dogdog"</span>;
+<span class="variable"><span class="keyword">var</span> regDog</span> = /(dog)+/;
+str.match(regDog);
+</code></pre><p>可以匹配字符串中多次出现的<code>dog</code>。并且，分组可以嵌套，通过嵌套和不同的组合可以实现复杂的分组。</p>
+</li>
+<li><p>反向引用</p>
+</li>
+</ul>
+<p>在表达式计算完成后，每个分组都被存放在一个特殊的地方以备将来使用，这些存储在分组中的特殊值，我们称之为反向引用。反向引用是按照从左到右的左括号字符的顺序进行创建和编号的。<br>例如，<code>(A?(B?(C?)))</code>将包含三个反向引用：<code>(A?(B?(C?)))</code>、<code>(B?(C?))</code>、<code>(C?)</code>。</p>
+<p>反向引用主要有三种使用方式。</p>
+<ol>
+<li><p>reg.$1</p>
+<pre><code><span class="keyword">var</span> str = <span class="string">"dagdbgdcg"</span>
+<span class="keyword">var</span> <span class="keyword">reg</span> = /(dag)(dbg)(dcg)/;
+str.<span class="literal">match</span>(<span class="keyword">reg</span>);
+console.<span class="literal">log</span>(RegExp.<span class="label">$1</span>);
+</code></pre></li>
+<li><p>/(reg)\1/</p>
+<pre><code><span class="keyword">var</span> str = <span class="string">"dagdagdog"</span>
+<span class="keyword">var</span> <span class="keyword">reg</span> = /(dag)\1/;
+str.<span class="literal">match</span>(<span class="keyword">reg</span>);
+console.<span class="literal">log</span>(RegExp.<span class="label">$1</span>);
+</code></pre></li>
+<li><p>replace(reg,”$2 $1”)</p>
+<pre><code><span class="keyword">var</span> str = <span class="string">"1234 2345"</span>
+<span class="keyword">var</span> <span class="keyword">reg</span> = /(\<span class="keyword">d</span>{4}) (\1)/;
+<span class="keyword">var</span> newStr = str.<span class="keyword">replace</span>(<span class="keyword">reg</span>, <span class="string">"$2 $1"</span>);
+</code></pre></li>
+</ol>
+<p>这里需要注意的是对于2种的<code>\1</code>的使用，是匹配出来的值，而不是匹配方式。另外，在左括号后加上<code>?:</code>可以创建非捕获分组，即可不存储反向引用的结果。</p>
+<ul>
+<li><p>候选<br><code>|</code>是正则表达式的候选操作符。</p>
+<pre><code><span class="keyword">var</span> str = <span class="string">"蛤蛤和长者"</span>;
+<span class="keyword">var</span> <span class="keyword">reg</span> = /蛤蛤|长者/<span class="keyword">g</span>;
+str = str.<span class="keyword">replace</span>(<span class="keyword">reg</span>,<span class="string">"*****"</span>);
+
+<span class="keyword">var</span> str = <span class="string">"蛤蛤和长者"</span>;
+<span class="keyword">var</span> <span class="keyword">reg</span> = /蛤蛤|长者/<span class="keyword">g</span>;
+<span class="comment">//这里的sMatch是reg匹配到的结果数组中的元素</span>
+str = str.<span class="keyword">replace</span>(<span class="keyword">reg</span>,function(sMatch){<span class="keyword">return</span> sMatch.<span class="keyword">replace</span>(/./<span class="keyword">g</span>,<span class="string">"*"</span>)});
+</code></pre></li>
+<li><p>前瞻</p>
+<ul>
+<li>正向前瞻<code>bed(?=room)</code>表示查询<em>接下来</em>出现的<em>是</em>括号中的内容</li>
+<li>负向前瞻<code>room(?！red)</code>表示查询<em>接下来</em>出现的<em>不是</em>括号中的内容。</li>
+<li>并且，前瞻不会出现在反向引用的结果中，分组不会考虑前瞻的存在。</li>
+</ul>
+</li>
+<li><p>边界<br>  <code>^</code>:行开头<br>  <code>$</code>:行结尾<br>  <code>\b</code>:单词边界<br>  <code>\B</code>:非单词的边界</p>
+</li>
+<li><p>多行模式<br><code>/m</code>表示多行模式，多行模式会改变<code>^</code>和<code>$</code>的边界行为，是的<code>\n</code>前后也为边界。</p>
+</li>
+</ul>
+  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/js/">js</a><a href="/tags/note/">note</a>
+  </div>
+
+</div>
+
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="http://lizhipower.github.io/2015/05/11/js-notes4/" data-title="正则表达式 | ZhiLI" data-tsina="lzec" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+
+<div class="next">
+<a href="/2015/05/10/js-notes3/"  title="继承">
+ <strong>下一篇：</strong><br/> 
+ <span>继承
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="顯示側邊欄"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目錄</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#基本方法"><span class="toc-number">1.</span> <span class="toc-text">基本方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#简单模式"><span class="toc-number">2.</span> <span class="toc-text">简单模式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#复杂模式"><span class="toc-number">3.</span> <span class="toc-text">复杂模式</span></a></li></ol>
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="隱藏側邊欄"></a></div>
+<aside class="clearfix">
+
+  
+
+  
+<div class="tagslist">
+	<p class="asidetitle">標簽</p>
+		<ul class="clearfix">
+		
+			
+				<li><a href="/tags/js/" title="js">js<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/note/" title="note">note<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/日记/" title="日记">日记<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/电力/" title="电力">电力<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/配电网/" title="配电网">配电网<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/算法/" title="算法">算法<sup>1</sup></a></li>
+			
+		
+		</ul>
+</div>
+
+
+  <div class="linkslist">
+  <p class="asidetitle">友情鏈接</p>
+    <ul>
+        
+          <li>
+            
+            	<a href="http://weibo.com/lzec" target="_blank" title="我的微博">我的微博</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://www.douban.com/people/Sirasisa/" target="_blank" title="我的豆瓣">我的豆瓣</a>
+            
+          </li>
+        
+    </ul>
+</div>
+
+  <div class="rsspart">
+	<a href="/atom.xml" target="_blank" title="rss">RSS 訂閱</a>
+</div>
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> Hello ,I&#39;m ZhiLI in ZJU. <br/>
+			This is my blog.</p>
+	</section>
+	 
+	<div class="social-font" class="clearfix">
+		
+		<a href="http://weibo.com/lzec" target="_blank" class="icon-weibo" title="微博"></a>
+		
+		
+		<a href="https://github.com/lizhipower" target="_blank" class="icon-github" title="github"></a>
+		
+		
+		<a href="http://stackoverflow.com/users/4204663" target="_blank" class="icon-stack-overflow" title="stackoverflow"></a>
+		
+		
+		<a href="https://twitter.com/lizhi_zju" target="_blank" class="icon-twitter" title="twitter"></a>
+		
+		
+		<a href="https://www.facebook.com/zhi.li.5661" target="_blank" class="icon-facebook" title="facebook"></a>
+		
+		
+		<a href="https://www.linkedin.com/in/416555127" target="_blank" class="icon-linkedin" title="linkedin"></a>
+		
+		
+		<a href="https://www.douban.com/people/sirasisa" target="_blank" class="icon-douban" title="豆瓣"></a>
+		
+		
+		<a href="https://www.zhihu.com/people/eelizhi" target="_blank" class="icon-zhihu" title="知乎"></a>
+		
+		
+		<a href="https://plus.google.com/103939508165728687191?rel=author" target="_blank" class="icon-google_plus" title="Google+"></a>
+		
+		
+		<a href="mailto:lizhipower@gmail.com" target="_blank" class="icon-email" title="Email Me"></a>
+		
+	</div>
+			
+		
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2015 
+		
+		<a href="/about" target="_blank" title="ZhiLI">ZhiLI</a>
+		
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<a href="#" class="overlay" id="qrcode"></a>',
+  '<div class="qrcode clearfix"><span>扫描二维码分享到微信朋友圈</span><a class="qrclose" href="#nothing"></a><strong>Loading...Please wait</strong><img id="qrcode-pic" data-src="http://s.jiathis.com/qrcode.php?url=' + encodedUrl + '"/></div>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+  $('.article-share-qrcode').click(function(){
+    var imgSrc = $('#qrcode-pic').attr('data-src');
+    $('#qrcode-pic').attr('src', imgSrc);
+    $('#qrcode-pic').load(function(){
+        $('.qrcode strong').text(' ');
+    });
+  });
+});     
+</script>
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="返回頂部"><img src="/img/scrollup.png"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="http://libs.cncdn.cn/mathjax/2.5.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<script>
+var option = {
+  engineKey: '0777470b2b43fd102c92'
+};
+(function(w,d,t,u,n,s,e){
+  s = d.createElement(t);
+  s.src = u;
+  s.async = 1;
+  w[n] = function(r){
+    w[n].opts = r;
+  };
+  e = d.getElementsByTagName(t)[0];
+  e.parentNode.insertBefore(s, e);
+})(window,document,'script','//tinysou-cdn.b0.upaiyun.com/ts.js','_ts');
+_ts(option);
+</script>
+
+<!-- Tiny_search End -->
+
+  </body>
+</html>
