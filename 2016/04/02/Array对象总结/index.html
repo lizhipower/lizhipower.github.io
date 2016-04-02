@@ -1,0 +1,697 @@
+
+ <!DOCTYPE HTML>
+<html >
+<head>
+  <meta charset="UTF-8">
+  
+    <title>Array对象总结 | ZhiLI</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="ZhiLI">
+    
+
+    
+    <meta name="description" content="概述Array对象用于在单个的变量中存储多个值。
+创建
+new Array() 返回一个空数组，length字段为0
+new Array(size) 返回一个非空数组，其元素为size个undifined
+new Array(ele0,ele1,ele2,...,elen)返回一个非空数组，其元素为ele0,ele1,ele2,...,elen
+Array() 将其作为函数调用时，效果与使用new">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Array对象总结">
+<meta property="og:url" content="http://lizhipower.github.io/2016/04/02/Array对象总结/index.html">
+<meta property="og:site_name" content="ZhiLI">
+<meta property="og:description" content="概述Array对象用于在单个的变量中存储多个值。
+创建
+new Array() 返回一个空数组，length字段为0
+new Array(size) 返回一个非空数组，其元素为size个undifined
+new Array(ele0,ele1,ele2,...,elen)返回一个非空数组，其元素为ele0,ele1,ele2,...,elen
+Array() 将其作为函数调用时，效果与使用new">
+<meta property="og:updated_time" content="2016-04-02T15:39:28.500Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Array对象总结">
+<meta name="twitter:description" content="概述Array对象用于在单个的变量中存储多个值。
+创建
+new Array() 返回一个空数组，length字段为0
+new Array(size) 返回一个非空数组，其元素为size个undifined
+new Array(ele0,ele1,ele2,...,elen)返回一个非空数组，其元素为ele0,ele1,ele2,...,elen
+Array() 将其作为函数调用时，效果与使用new">
+<meta name="twitter:creator" content="@lizhi_zju">
+<link rel="publisher" href="103939508165728687191">
+
+    
+    <link rel="alternative" href="/atom.xml" title="ZhiLI" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/jacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/jacman.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/logo.png" alt="ZhiLI" title="ZhiLI"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="ZhiLI">ZhiLI</a></h1>
+				<h2 class="blog-motto"></h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">Home</a></li>
+					
+						<li><a href="/archives">Archives</a></li>
+					
+						<li><a href="/about">About</a></li>
+					
+					<li>
+ 					
+						<form class="search">
+							<label>Search</label>
+						<input type="text" id="ts-search-input" name="q" size="30" placeholder="搜索"><br>
+						</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2016/04/02/Array对象总结/" title="Array对象总结" itemprop="url">Array对象总结</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="https://plus.google.com/103939508165728687191?rel=author" title="ZhiLI" target="_blank" itemprop="author">ZhiLI</a>
+		
+  <p class="article-time">
+    <time datetime="2016-04-02T06:34:32.000Z" itemprop="datePublished"> 发表于 2016-04-02</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目录</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#概述"><span class="toc-number">1.</span> <span class="toc-text">概述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#创建"><span class="toc-number">2.</span> <span class="toc-text">创建</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#属性"><span class="toc-number">3.</span> <span class="toc-text">属性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#方法"><span class="toc-number">4.</span> <span class="toc-text">方法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#数组操作"><span class="toc-number">4.1.</span> <span class="toc-text">数组操作</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#数组递归"><span class="toc-number">4.2.</span> <span class="toc-text">数组递归</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#数组查找"><span class="toc-number">4.3.</span> <span class="toc-text">数组查找</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#数组遍历"><span class="toc-number">4.4.</span> <span class="toc-text">数组遍历</span></a></li></ol></li></ol>
+		
+		</div>
+		
+		<h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p><code>Array对象</code>用于在单个的变量中存储多个值。</p>
+<h2 id="创建"><a href="#创建" class="headerlink" title="创建"></a>创建</h2><ul>
+<li><code>new Array()</code> 返回一个空数组，length字段为0</li>
+<li><code>new Array(size)</code> 返回一个非空数组，其元素为size个undifined</li>
+<li><code>new Array(ele0,ele1,ele2,...,elen)</code>返回一个非空数组，其元素为<code>ele0,ele1,ele2,...,elen</code></li>
+<li><code>Array()</code> 将其作为函数调用时，效果与使用new运算符将其当做构造函数来调用时的效果一样</li>
+<li><code>[ele0,ele1,ele2,...,elen]</code> 当然这样用是最常用的</li>
+</ul>
+<h2 id="属性"><a href="#属性" class="headerlink" title="属性"></a>属性</h2><ul>
+<li><code>constructor</code> 返回对创建次对象的数组函数的引用</li>
+<li><code>length</code> <strong>设置</strong>或返回数组中元素的数目</li>
+<li><code>prototype</code> 向<code>Array对象</code>添加属性和方法</li>
+</ul>
+<p>其中，值得注意的是<code>length</code>属性，不仅可以取得当前<code>Array对象</code>中元素的数目，也可以设置当前<code>Array对象</code>可以容纳元素的数目，如果设置其length值小于当前的对象的元素数目，则会删去超出长度的元素。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">let arr = new Arrary(1,2,3);</span><br><span class="line">console.log(arr.length, arr);</span><br><span class="line">arr.length = 2;</span><br><span class="line">console.log(arr.length, arr);</span><br><span class="line">//2 [1, 2]</span><br><span class="line">arr.length = -1;</span><br><span class="line">//invalid array length</span><br></pre></td></tr></table></figure>
+<h2 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h2><p>主要分为3类：</p>
+<ul>
+<li>数组操作</li>
+<li>数组递归</li>
+<li>数组查找</li>
+<li>数组遍历</li>
+</ul>
+<h3 id="数组操作"><a href="#数组操作" class="headerlink" title="数组操作"></a>数组操作</h3><table>
+<thead>
+<tr>
+<th style="text-align:left">方法</th>
+<th style="text-align:left">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><code>concat()</code></td>
+<td style="text-align:left">在原<code>Array对象</code>的基础上连接新的<code>Array对象</code>，返回一个新的<code>Array对象</code>，和<code>String对象</code>的<code>concat()</code>实现类似功能</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>copyWithin(target,start,end)</code></td>
+<td style="text-align:left">在<code>Array对象</code>内进行复制，从start位置开始，在end（缺省为数组尾）位置<em>前</em>结束，复制到target位置，溢出忽略</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>fill(value,start,end)</code></td>
+<td style="text-align:left">在<code>Array对象</code>内进行批量赋值，从start位置（缺省为0）开始，在end（缺省为数组尾）位置<em>前</em>结束</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>Array.isArray()</code></td>
+<td style="text-align:left">判断一个数组是否是<code>Array对象</code></td>
+</tr>
+<tr>
+<td style="text-align:left"><code>join(separator)</code></td>
+<td style="text-align:left">将数组中元素间隔着separator连接为一个字符串</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>pop()</code></td>
+<td style="text-align:left">删除数组中最后一个元素，返回该元素</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>push()</code></td>
+<td style="text-align:left">在数组尾中存入若干个元素（多个参数），返回元素的长度</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>reverse()</code></td>
+<td style="text-align:left">逆序数组，改变数组值，返回该数组</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>shift()</code></td>
+<td style="text-align:left">删除数组中第一个元素，，返回该元素</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>slice(start,end)</code></td>
+<td style="text-align:left">取数组中start到end（缺省为元素尾，不包括）之前的元素，负值表示从元素尾取值</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>sort(compareFunction)</code></td>
+<td style="text-align:left">缺省按字符串的字符升序排序，compareFunction为递归函数，返回值负值者在前</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>splice(index,howmany,item1,.....,itemX)</code></td>
+<td style="text-align:left">若howmany为0则在index位置开始插入，若howmany为正则从index开始删除后在index位置开始插入。因此可以在数组中任意位置插入，删除（无item）元素</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>toString()</code></td>
+<td style="text-align:left">相当于<code>join(&#39;,&#39;)</code></td>
+</tr>
+<tr>
+<td style="text-align:left"><code>unshift()</code></td>
+<td style="text-align:left">在数组头插入元素</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>valueOf()</code></td>
+<td style="text-align:left"><code>numbers === numbers.valueOf()</code> // <code>true</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="数组递归"><a href="#数组递归" class="headerlink" title="数组递归"></a>数组递归</h3><table>
+<thead>
+<tr>
+<th style="text-align:left">方法</th>
+<th style="text-align:left">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><code>reduce(function(total,currentValue,currentIndex,arr),initialValue)</code></td>
+<td style="text-align:left">按照function从左到右递归该数组，total为上一次递归函数的返回值（初始值为数组第一个元素，即第一次递归是元素1和元素2之间的操作），currentValue为当前递归的数组元素，currentIndex当前递归元素的索引，arr为该数组</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>reduceRight()</code></td>
+<td style="text-align:left">与<code>reduce()</code>相同，从右往左</td>
+</tr>
+</tbody>
+</table>
+<h3 id="数组查找"><a href="#数组查找" class="headerlink" title="数组查找"></a>数组查找</h3><table>
+<thead>
+<tr>
+<th style="text-align:left">方法</th>
+<th style="text-align:left">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><code>find(function(currentValue,index,arr),thisValue)</code></td>
+<td style="text-align:left">返回第一个符合function（返回值为true）的元素，find会跳过空值的元素（定义但未赋值），返回值为该元素</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>findIndex()</code></td>
+<td style="text-align:left">与find类似，返回值为元素的索引</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>indexOf(searchElement[, fromIndex = 0])</code></td>
+<td style="text-align:left">查元素，返回第一次出现的索引，searchElement要查找的元素，fromIndex</td>
+</tr>
+</tbody>
+</table>
+<p>开始查找的位置。如果该索引值大于或等于数组长度，意味着不会在数组里查找，返回-1。如果参数中提供的索引值是一个负值，则将其作为数组末尾的一个抵消，即-1表示从最后一个元素开始查找，-2表示从倒数第二个元素开始查找 ，以此类推。 注意：如果参数中提供的索引值是一个负值，仍然从前向后查询数组。如果抵消后的索引值仍小于0，则整个数组都将会被查询。其默认值为0.|<br>|<code>lastIndexOf()</code>|返回从右往左第一次出现的索引|</p>
+<h3 id="数组遍历"><a href="#数组遍历" class="headerlink" title="数组遍历"></a>数组遍历</h3><table>
+<thead>
+<tr>
+<th style="text-align:left">方法</th>
+<th style="text-align:left">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><code>filter(function(currentValue,index,arr), thisValue)</code></td>
+<td style="text-align:left">遍历数组，currentValue为当前元素，index为当前元素索引，arr为数组对象，thisValue为function内this值，缺省<em>取决于当前执行环境是否为严格模式（严格模式下为 undefined，非严格模式下为全局对象</em>（见<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach" target="_blank" rel="external">MDN</a>)</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>forEach()</code></td>
+<td style="text-align:left">对数组中每个元素进行操作，且无法跳出循环，不改变数组的值</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>map()</code></td>
+<td style="text-align:left">对数组中每个元素进行操作，且无法跳出循环，将返回值组成一个新的数组返回</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>some(function)</code></td>
+<td style="text-align:left">全部不通过function返回false</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>every(function)</code></td>
+<td style="text-align:left">全部通过function返回true</td>
+</tr>
+</tbody>
+</table>
+  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/前端/">前端</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/js/">js</a><a href="/tags/note/">note</a>
+  </div>
+
+</div>
+
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="http://lizhipower.github.io/2016/04/02/Array对象总结/" data-title="Array对象总结 | ZhiLI" data-tsina="lzec" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+
+<div class="next">
+<a href="/2016/04/01/String对象总结/"  title="String对象总结">
+ <strong>下一篇：</strong><br/> 
+ <span>String对象总结
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目录</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#概述"><span class="toc-number">1.</span> <span class="toc-text">概述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#创建"><span class="toc-number">2.</span> <span class="toc-text">创建</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#属性"><span class="toc-number">3.</span> <span class="toc-text">属性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#方法"><span class="toc-number">4.</span> <span class="toc-text">方法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#数组操作"><span class="toc-number">4.1.</span> <span class="toc-text">数组操作</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#数组递归"><span class="toc-number">4.2.</span> <span class="toc-text">数组递归</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#数组查找"><span class="toc-number">4.3.</span> <span class="toc-text">数组查找</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#数组遍历"><span class="toc-number">4.4.</span> <span class="toc-text">数组遍历</span></a></li></ol></li></ol>
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
+<aside class="clearfix">
+
+  
+<div class="categorieslist">
+	<p class="asidetitle">分类</p>
+		<ul>
+		
+		  
+			<li><a href="/categories/前端/" title="前端">前端<sup>3</sup></a></li>
+		  
+		
+		</ul>
+</div>
+
+
+  
+<div class="tagslist">
+	<p class="asidetitle">标签</p>
+		<ul class="clearfix">
+		
+			
+				<li><a href="/tags/js/" title="js">js<sup>6</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/note/" title="note">note<sup>6</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/日记/" title="日记">日记<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/电力/" title="电力">电力<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/配电网/" title="配电网">配电网<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/算法/" title="算法">算法<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/工程化/" title="工程化">工程化<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/gulp/" title="gulp">gulp<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/webpack/" title="webpack">webpack<sup>1</sup></a></li>
+			
+		
+		</ul>
+</div>
+
+
+  <div class="linkslist">
+  <p class="asidetitle">友情链接</p>
+    <ul>
+        
+          <li>
+            
+            	<a href="http://weibo.com/lzec" target="_blank" title="我的微博">我的微博</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://www.douban.com/people/Sirasisa/" target="_blank" title="我的豆瓣">我的豆瓣</a>
+            
+          </li>
+        
+    </ul>
+</div>
+
+  <div class="rsspart">
+	<a href="/atom.xml" target="_blank" title="rss">RSS 订阅</a>
+</div>
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> Hello ,I&#39;m ZhiLI in ZJU. <br/>
+			This is my blog.</p>
+	</section>
+	 
+	<div class="social-font" class="clearfix">
+		
+		<a href="http://weibo.com/lzec" target="_blank" class="icon-weibo" title="微博"></a>
+		
+		
+		<a href="https://github.com/lizhipower" target="_blank" class="icon-github" title="github"></a>
+		
+		
+		<a href="http://stackoverflow.com/users/4204663" target="_blank" class="icon-stack-overflow" title="stackoverflow"></a>
+		
+		
+		<a href="https://twitter.com/lizhi_zju" target="_blank" class="icon-twitter" title="twitter"></a>
+		
+		
+		<a href="https://www.facebook.com/zhi.li.5661" target="_blank" class="icon-facebook" title="facebook"></a>
+		
+		
+		<a href="https://www.linkedin.com/in/416555127" target="_blank" class="icon-linkedin" title="linkedin"></a>
+		
+		
+		<a href="https://www.douban.com/people/sirasisa" target="_blank" class="icon-douban" title="豆瓣"></a>
+		
+		
+		<a href="https://www.zhihu.com/people/eelizhi" target="_blank" class="icon-zhihu" title="知乎"></a>
+		
+		
+		<a href="https://plus.google.com/103939508165728687191?rel=author" target="_blank" class="icon-google_plus" title="Google+"></a>
+		
+		
+		<a href="mailto:lizhipower@gmail.com" target="_blank" class="icon-email" title="Email Me"></a>
+		
+	</div>
+			
+		
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2016 
+		
+		<a href="/about" target="_blank" title="ZhiLI">ZhiLI</a>
+		
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<a href="#" class="overlay" id="qrcode"></a>',
+  '<div class="qrcode clearfix"><span>扫描二维码分享到微信朋友圈</span><a class="qrclose" href="#nothing"></a><strong>Loading...Please wait</strong><img id="qrcode-pic" data-src="http://s.jiathis.com/qrcode.php?url=' + encodedUrl + '"/></div>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+  $('.article-share-qrcode').click(function(){
+    var imgSrc = $('#qrcode-pic').attr('data-src');
+    $('#qrcode-pic').attr('src', imgSrc);
+    $('#qrcode-pic').load(function(){
+        $('.qrcode strong').text(' ');
+    });
+  });
+});     
+</script>
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="返回顶部"><img src="/img/scrollup.png"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="http://libs.cncdn.cn/mathjax/2.5.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<script>
+var option = {
+  engineKey: '0777470b2b43fd102c92'
+};
+(function(w,d,t,u,n,s,e){
+  s = d.createElement(t);
+  s.src = u;
+  s.async = 1;
+  w[n] = function(r){
+    w[n].opts = r;
+  };
+  e = d.getElementsByTagName(t)[0];
+  e.parentNode.insertBefore(s, e);
+})(window,document,'script','//tinysou-cdn.b0.upaiyun.com/ts.js','_ts');
+_ts(option);
+</script>
+
+<!-- Tiny_search End -->
+
+  </body>
+</html>
