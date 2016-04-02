@@ -28,7 +28,7 @@
 <meta property="og:image" content="http://ww4.sinaimg.cn/mw690/7314808bgw1f2bazkjo84j206q0ck0tf.jpg">
 <meta property="og:image" content="http://ww4.sinaimg.cn/mw690/7314808bgw1f2bazlek6ej206704xt8v.jpg">
 <meta property="og:image" content="http://ww4.sinaimg.cn/mw690/7314808bgw1f2bazloo4kj20gh0a7my9.jpg">
-<meta property="og:updated_time" content="2016-03-27T04:24:17.542Z">
+<meta property="og:updated_time" content="2016-04-02T15:42:01.203Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="前端工作流的一些尝试">
 <meta name="twitter:description" content="最近一直在研究React，在了解完React的一些写法和Flux构建之后，自然开始想要让自己的代码更加模块化一点，或者说组件化一点。我希望自己今后的目录应该是图1这个样子。
@@ -66,7 +66,7 @@
 				<h1 class="site-name"><a href="/" title="ZhiLI">ZhiLI</a></h1>
 				<h2 class="blog-motto"></h2>
 			</div>
-			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜單">
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
 			</a></div>
 			<nav class="animated">
 				<ul>
@@ -104,14 +104,14 @@
 		<a href="https://plus.google.com/103939508165728687191?rel=author" title="ZhiLI" target="_blank" itemprop="author">ZhiLI</a>
 		
   <p class="article-time">
-    <time datetime="2016-03-27T03:49:51.000Z" itemprop="datePublished"> 發表於 2016-03-27</time>
+    <time datetime="2016-03-27T03:49:51.000Z" itemprop="datePublished"> 发表于 2016-03-27</time>
     
   </p>
 </header>
 	<div class="article-content">
 		
 		<div id="toc" class="toc-article">
-			<strong class="toc-title">文章目錄</strong>
+			<strong class="toc-title">文章目录</strong>
 		
 			
 		
@@ -127,61 +127,8 @@
 <p>##webapck<br>关于webpack的介绍如下：<br><blockquote><p>Webpack是一个前端资源加载/打包工具，只需要相对简单的配置就可以提供前端工程化需要的各种功能，并且如果有需要它还可以被整合到其他比如 Grunt / Gulp 的工作流。</p>
 <footer><strong>hulufei</strong><cite><a href="https://hulufei.gitbooks.io/react-tutorial/content/webpack.html" target="_blank" rel="external">Webpack 配置 React 开发环境</a></cite></footer></blockquote></p>
 <p>我的配置如下：</p>
-<pre><code>var webpack = require(&apos;webpack&apos;);
-var path = require(&apos;path&apos;);
-var ExtractTextPlugin = require(&quot;extract-text-webpack-plugin&quot;);
-var HtmlWebpackPlugin = require(&apos;html-webpack-plugin&apos;);
-var indexPath = path.resolve(__dirname, &apos;src/index.js&apos;);
-var outputPath = path.resolve(__dirname, &apos;public&apos;);
-module.exports = {
-  entry: [
-    &apos;webpack/hot/dev-server&apos;,
-    indexPath
-  ],
-  output: {
-    path: outputPath,
-    filename: &apos;bundle.js&apos;
-  },
-  devtool: &apos;source-map&apos;,
-  &apos;display-error-details&apos;: true,
-  module: {
-    loaders: [
-      {
-        test: /\.js?$/,
-        exclude: /node_modules/,
-        loaders: [&apos;react-hot&apos;, &apos;babel?presets[]=react,presets[]=es2015,presets[]=stage-0&apos;]
-      },
-      {
-        test: /.less$/,
-        loader: ExtractTextPlugin.extract(&apos;css!less&apos;)
-      },
-      {
-        test: /\.(jpg|png|mp3|svg)$/,
-        loaders: [&apos;file?name=assets/[name].[ext]&apos;]
-      }
-    ]
-  },
-  plugins: [
-    // new webpack.HotModuleReplacementPlugin(),
-    new webpack.NoErrorsPlugin(),
-new webpack.optimize.CommonsChunkPlugin(&quot;commons&quot;, &quot;commons.js&quot;),
-    new webpack.ProvidePlugin({
-      &apos;React&apos;: path.resolve(__dirname, &quot;node_modules/react/react&quot;),
-      &apos;ReactDOM&apos;: path.resolve(__dirname, &quot;node_modules/react-dom/dist/react-dom&quot;),
-      &quot;jQuery&quot;: path.resolve(__dirname, &quot;node_modules/jquery/dist/jquery&quot;),
-      &quot;$&quot;: path.resolve(__dirname, &quot;node_modules/jquery/dist/jquery&quot;)
-    }),
-    new ExtractTextPlugin(&quot;[name].css?[hash]-[chunkhash]&quot;, {
-      allChunks: true,
-      disable: false
-    }),
-    new HtmlWebpackPlugin({
-      title: &apos;React Blog in ES6&apos;,
-      template: &apos;./src/index.html&apos;
-    })
-  ]
-};
-</code></pre><p>首先是在entry上定义入口文件，然后再output定义生成文件，loaders里面是对于不同的文件的采用的loader。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line">var webpack = require(&apos;webpack&apos;);</span><br><span class="line">var path = require(&apos;path&apos;);</span><br><span class="line">var ExtractTextPlugin = require(&quot;extract-text-webpack-plugin&quot;);</span><br><span class="line">var HtmlWebpackPlugin = require(&apos;html-webpack-plugin&apos;);</span><br><span class="line">var indexPath = path.resolve(__dirname, &apos;src/index.js&apos;);</span><br><span class="line">var outputPath = path.resolve(__dirname, &apos;public&apos;);</span><br><span class="line">module.exports = &#123;</span><br><span class="line">  entry: [</span><br><span class="line">    &apos;webpack/hot/dev-server&apos;,</span><br><span class="line">    indexPath</span><br><span class="line">  ],</span><br><span class="line">  output: &#123;</span><br><span class="line">    path: outputPath,</span><br><span class="line">    filename: &apos;bundle.js&apos;</span><br><span class="line">  &#125;,</span><br><span class="line">  devtool: &apos;source-map&apos;,</span><br><span class="line">  &apos;display-error-details&apos;: true,</span><br><span class="line">  module: &#123;</span><br><span class="line">    loaders: [</span><br><span class="line">      &#123;</span><br><span class="line">        test: /\.js?$/,</span><br><span class="line">        exclude: /node_modules/,</span><br><span class="line">        loaders: [&apos;react-hot&apos;, &apos;babel?presets[]=react,presets[]=es2015,presets[]=stage-0&apos;]</span><br><span class="line">      &#125;,</span><br><span class="line">      &#123;</span><br><span class="line">        test: /.less$/,</span><br><span class="line">        loader: ExtractTextPlugin.extract(&apos;css!less&apos;)</span><br><span class="line">      &#125;,</span><br><span class="line">      &#123;</span><br><span class="line">        test: /\.(jpg|png|mp3|svg)$/,</span><br><span class="line">        loaders: [&apos;file?name=assets/[name].[ext]&apos;]</span><br><span class="line">      &#125;</span><br><span class="line">    ]</span><br><span class="line">  &#125;,</span><br><span class="line">  plugins: [</span><br><span class="line">    // new webpack.HotModuleReplacementPlugin(),</span><br><span class="line">    new webpack.NoErrorsPlugin(),</span><br><span class="line">new webpack.optimize.CommonsChunkPlugin(&quot;commons&quot;, &quot;commons.js&quot;),</span><br><span class="line">    new webpack.ProvidePlugin(&#123;</span><br><span class="line">      &apos;React&apos;: path.resolve(__dirname, &quot;node_modules/react/react&quot;),</span><br><span class="line">      &apos;ReactDOM&apos;: path.resolve(__dirname, &quot;node_modules/react-dom/dist/react-dom&quot;),</span><br><span class="line">      &quot;jQuery&quot;: path.resolve(__dirname, &quot;node_modules/jquery/dist/jquery&quot;),</span><br><span class="line">      &quot;$&quot;: path.resolve(__dirname, &quot;node_modules/jquery/dist/jquery&quot;)</span><br><span class="line">    &#125;),</span><br><span class="line">    new ExtractTextPlugin(&quot;[name].css?[hash]-[chunkhash]&quot;, &#123;</span><br><span class="line">      allChunks: true,</span><br><span class="line">      disable: false</span><br><span class="line">    &#125;),</span><br><span class="line">    new HtmlWebpackPlugin(&#123;</span><br><span class="line">      title: &apos;React Blog in ES6&apos;,</span><br><span class="line">      template: &apos;./src/index.html&apos;</span><br><span class="line">    &#125;)</span><br><span class="line">  ]</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>首先是在entry上定义入口文件，然后再output定义生成文件，loaders里面是对于不同的文件的采用的loader。</p>
 <p>对于React需要用到babel来进行转化，并且preset应该有react、es2015和stage-0。这样就可以在文件中按照es6的写法来写react了，会方便很多，因为es6提供了很多新的语法糖，还是挺适合React的。</p>
 <p>另外，对于不同styles可以采用不同loader，比如我采用的less那么就需要使用css和less的loader。对于一些静态文件，比如图片、svg等，则需要用到fileloader。</p>
 <p>最后就是一些插件，CommonsChunkPlugin用来将一些反复依赖的到第三方插件全部打包到一个common文件中，并且可以别名的形式出现，这样就不需要再文件中反复出现<code>import React from &#39;react&#39;</code>这样的引用，顺便可以在eslint中将这些规则关闭，可以节省一定的代码量。ExtractTextPlugin和HtmlWebpackPlugin这两个插件可以生成html文件并且自动引用样式文件。</p>
@@ -249,26 +196,26 @@ new webpack.optimize.CommonsChunkPlugin(&quot;commons&quot;, &quot;commons.js&qu
 	
 
 </div>  
-      <div class="openaside"><a class="navbutton" href="#" title="顯示側邊欄"></a></div>
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
 
   <div id="toc" class="toc-aside">
-  <strong class="toc-title">文章目錄</strong>
+  <strong class="toc-title">文章目录</strong>
  
  
  
   </div>
 
 <div id="asidepart">
-<div class="closeaside"><a class="closebutton" href="#" title="隱藏側邊欄"></a></div>
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
 <aside class="clearfix">
 
   
 <div class="categorieslist">
-	<p class="asidetitle">分類</p>
+	<p class="asidetitle">分类</p>
 		<ul>
 		
 		  
-			<li><a href="/categories/前端/" title="前端">前端<sup>2</sup></a></li>
+			<li><a href="/categories/前端/" title="前端">前端<sup>3</sup></a></li>
 		  
 		
 		</ul>
@@ -277,15 +224,15 @@ new webpack.optimize.CommonsChunkPlugin(&quot;commons&quot;, &quot;commons.js&qu
 
   
 <div class="tagslist">
-	<p class="asidetitle">標簽</p>
+	<p class="asidetitle">标签</p>
 		<ul class="clearfix">
 		
 			
-				<li><a href="/tags/js/" title="js">js<sup>5</sup></a></li>
+				<li><a href="/tags/js/" title="js">js<sup>6</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/note/" title="note">note<sup>5</sup></a></li>
+				<li><a href="/tags/note/" title="note">note<sup>6</sup></a></li>
 			
 		
 			
@@ -321,7 +268,7 @@ new webpack.optimize.CommonsChunkPlugin(&quot;commons&quot;, &quot;commons.js&qu
 
 
   <div class="linkslist">
-  <p class="asidetitle">友情鏈接</p>
+  <p class="asidetitle">友情链接</p>
     <ul>
         
           <li>
@@ -340,7 +287,7 @@ new webpack.optimize.CommonsChunkPlugin(&quot;commons&quot;, &quot;commons.js&qu
 </div>
 
   <div class="rsspart">
-	<a href="/atom.xml" target="_blank" title="rss">RSS 訂閱</a>
+	<a href="/atom.xml" target="_blank" title="rss">RSS 订阅</a>
 </div>
 
 </aside>
@@ -552,7 +499,7 @@ $(document).ready(function(){
 <!-- Totop Begin -->
 
 	<div id="totop">
-	<a title="返回頂部"><img src="/img/scrollup.png"/></a>
+	<a title="返回顶部"><img src="/img/scrollup.png"/></a>
 	</div>
 	<script src="/js/totop.js"></script>
 
