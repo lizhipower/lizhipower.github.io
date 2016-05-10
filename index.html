@@ -82,6 +82,82 @@
         <header class="article-info clearfix">
   <h1 itemprop="name">
     
+      <a href="/2016/05/10/2016年春学期回顾/" title="2016年春学期回顾" itemprop="url">2016年春学期回顾</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="https://plus.google.com/103939508165728687191?rel=author" title="ZhiLI" target="_blank" itemprop="author">ZhiLI</a>
+		
+  <p class="article-time">
+    <time datetime="2016-05-10T13:18:16.000Z" itemprop="datePublished"> Published 2016-05-10</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <p>说来又过了一个学期，匆匆忙忙好像也没有干出一些特别具体的事情。然而身边朋友多有收获，看着下不去的肚子和上不去的能力，不免唏嘘。</p>
+<p>过去一短时间生活上主要在搞足球和搞对象啦。好歹小组出线，小组赛全勤，也算一个不小的成就。但是仔细感觉，身体上并没有更加有力量感，反而不断被右膝盖的酸痛感困扰。回顾三场小组赛，印象最深的是对阵传媒，韩国小哥风一样的速度近乎于日本中村小友，踢完那场足足在床上躺了一天。大约童年缺钙，落下了如今这条给不上力量的右膝盖。其他两个球队多是找感觉，没啥好说的。</p>
+<p>其他时间主要在看看一些在线课程和书。</p>
+<p>之前发过一条朋友圈：</p>
+<blockquote>
+<p>一开始只是想要写的快一点，于是有了React，后面又想跟上潮流，于是有了webpack、eslint，内容多一点于是有了Router和flux，后来发现还有一个Redux好像更装逼，于是噼里啪啦又加加加………</p>
+</blockquote>
+<p>大概也说明了自己在研究的一条技术栈，其实也就是：</p>
+<blockquote>
+<p><code>React</code> + <code>React-Router</code> + <code>Redux</code> + <code>Webpack</code> + <code>ES6</code></p>
+</blockquote>
+<p>其实我还是挺喜欢写写代码的，不然真心觉得对不起这么贵的键盘，想来也是划算，千把块钱买个键盘大约能保持个两三年的打字的热情，千把块钱扔健身房里大概就能推个二十公斤。</p>
+<p>其实<code>React</code>去年就已经接触到，作为一个View层真的很方便，而且我有点愚钝，其实也因为涉及到项目规模太小，至今没能体会到<code>AngularJS</code>里面双向绑定出现的性能问题，不过当时赶时髦，还是研究了一段时间。对于<code>React</code>我唯一的感觉就是不如<code>AngularJS</code>里面的<code>directive</code>来的方便。打个比方，我想要做一个tabs，直接把ng的<code>directive</code>放在<code>ul</code>上就可以了，在<code>React</code>里面还是定义一两个组件才能完成，虽然核心的代码差不多，但是还是觉得略有多余。不过话又说回来，ng里面那一大堆<code>link</code>啊<code>compile</code>确实挺烦。</p>
+<p>后面为了管理数据，我从<code>Flux</code>切换到了<code>Redux</code>，还有一大堆中间件，特别对于中间件，到目前为止还搞得不是很清楚。最近做了一个很蠢的ftp的文件管理的应用，功能很傻，登录进去，读出ftp文件列表，文件夹可以继续点进去，文件可以下载（批量下载还没有尝试），在当前目录下可以实现批量文件上传。一开始想要通过浏览器的location来管理cwd，后来还是放弃了，自己写了cwd的reducer，手动来管理前进后退。</p>
+<p>还有一个觉得挺有意思的就是<code>webpack-dev-server</code>的<code>proxy</code>功能。说来也是丢人，感觉人家都在搞什么前后端分离啥的，我也没有那么高级的追求，就想着写代码时候，tomcat上面跑一个后台，webpack再跑一个前台，真方便。没有用<code>http-proxy</code>是因为今后可能还是主要用java来写后台，node上面就没有特别花心思。然后发现前面说到的<code>proxy</code>功能正好可以满足我想要的。折腾了好久，终于搞明白怎么弄，之前我一直傻不拉几的在<code>webpack</code>里面设置，有一点错误。而且<code>http-proxy</code>在转的时候，如果通过同一个server.js就会发现你其实还是在不断地重新webpack，还不如跑一个node后台，另外一个文件专门跑一个webpack-dev-server，这样重启node后台的时候并不会影响到前台，会方便很多。但是我在这方面上做的还是比较浅，如果说错了请各位指导。</p>
+<p>最后一个就是ftp的中文编码问题，因为ftp用的是iso-8859-1，java上面用<code>setControlEncoding</code>可以解决大部分的问题。然而在node上似乎大部分的包都没有考虑中文问题，<code>ftp</code>这个包里面都用了binary，读出来可以解码，但是搞了变天没法传中文进去。后来发现<code>jsftp</code>可以在<code>ftp.raw</code>的namespace下发ftp命令，这样就是可以通过<code>ftp.raw.opts(&#39;utf8 on&#39;, callback)</code>来传中文，相当方便，感觉在node上没有找到其他更好的方法，如果有大牛知道，务必请指点我一下。</p>
+<p>说来，过不了几个月就要找工作了，去本专业还是试一试当个初级码农，略有困惑，求个醍醐灌顶？请拍砖。</p>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/前端/">前端</a>►<a class="article-category-link" href="/categories/前端/日记/">日记</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/Redux/">Redux</a><a href="/tags/React/">React</a><a href="/tags/webpack/">webpack</a><a href="/tags/ftp/">ftp</a><a href="/tags/node/">node</a>
+  </div>
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
       <a href="/2016/04/02/Array对象总结/" title="Array对象总结" itemprop="url">Array对象总结</a>
   </h1>
   <p class="article-author">By
@@ -607,7 +683,7 @@
 
   <div class="article-tags">
   
-  <span></span> <a href="/tags/工程化/">工程化</a><a href="/tags/gulp/">gulp</a><a href="/tags/webpack/">webpack</a>
+  <span></span> <a href="/tags/webpack/">webpack</a><a href="/tags/工程化/">工程化</a><a href="/tags/gulp/">gulp</a>
   </div>
 
 </div>
@@ -1244,73 +1320,10 @@ result(); // 999
 
 
 
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2015/04/23/2015-04-23/" title="2015-04-23" itemprop="url">2015-04-23</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="https://plus.google.com/103939508165728687191?rel=author" title="ZhiLI" target="_blank" itemprop="author">ZhiLI</a>
-		
-  <p class="article-time">
-    <time datetime="2015-04-23T06:37:15.000Z" itemprop="datePublished"> Published 2015-04-23</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <p>#最近主要在做三件事</p>
-<ul>
-<li>百度IFE</li>
-</ul>
-<p><a href="https://github.com/baidu-ife/ife" target="_blank" rel="external">https://github.com/baidu-ife/ife</a></p>
-<ul>
-<li>宁波RDS</li>
-</ul>
-<p>下周甲方过来汇报</p>
-<ul>
-<li>配网论文</li>
-</ul>
-<p>月底提交，打算投电网吧，希望能在这学期搞定第一篇EI。</p>
 
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-
-  <div class="article-tags">
-  
-  <span></span> <a href="/tags/日记/">日记</a>
-  </div>
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
+  <nav id="page-nav" class="clearfix">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next<span></span></a>
+  </nav>
 
 </div>
       <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
@@ -1325,7 +1338,11 @@ result(); // 999
 		<ul>
 		
 		  
-			<li><a href="/categories/前端/" title="前端">前端<sup>3</sup></a></li>
+			<li><a href="/categories/前端/" title="前端">前端<sup>4</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/前端/日记/" title="日记">日记<sup>1</sup></a></li>
 		  
 		
 		</ul>
@@ -1350,6 +1367,26 @@ result(); // 999
 			
 		
 			
+				<li><a href="/tags/webpack/" title="webpack">webpack<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/ftp/" title="ftp">ftp<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/node/" title="node">node<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Redux/" title="Redux">Redux<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/React/" title="React">React<sup>1</sup></a></li>
+			
+		
+			
 				<li><a href="/tags/电力/" title="电力">电力<sup>1</sup></a></li>
 			
 		
@@ -1367,10 +1404,6 @@ result(); // 999
 		
 			
 				<li><a href="/tags/gulp/" title="gulp">gulp<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/webpack/" title="webpack">webpack<sup>1</sup></a></li>
 			
 		
 		</ul>
